@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.input {
+  @apply w-full p-4 rounded-lg outline-none my-2 h-4 text-textColor1;
+}
+.btn {
+  @apply w-full rounded-full shadow-lg bg-btn p-2 text-textColor1 mt-4;
+}
+.smallBtn {
+  @apply text-sm w-auto rounded-md shadow-lg bg-btn p-1 text-textColor1 m-1;
+}
+.leftSideLink {
+  @apply list-none bg-background text-gray-200 text-sm p-2 shadow-xl my-2;
+}
+.studentDetailsTable {
+  @apply text-sm w-[80%] table-auto text-gray-200 mt-4 uppercase;
+}
+.studentDetailsTable > thead {
+  @apply bg-forecolor1;
+}
+.studentDetailsTable > thead > tr > td {
+  @apply p-2;
+}
+.studentDetailsTable > thead > tr {
+  @apply border-s;
+}
+.studentDetailsTable > tbody > tr > td {
+  @apply p-2 border-2;
+}
