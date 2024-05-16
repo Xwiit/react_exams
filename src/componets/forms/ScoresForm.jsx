@@ -4,9 +4,9 @@ function ScoresForm({ onSubmit }) {
   const { id } = useParams();
 
   const [formData, setFormData] = useState({
-    firstCA: 0,
-    secondCA: 0,
-    exam: 0,
+    firstCA: 20,
+    secondCA: 30,
+    exam: 40,
     id: Number(id),
   });
 
@@ -64,8 +64,11 @@ function ScoresForm({ onSubmit }) {
           required
           onChange={handleChange}
         />
-        <button type="submit" className="smallBtn">
-          Submit Scores
+        <button
+          type="submit"
+          className="w-full bg-lightColor text-sm p-2 rounded-full"
+        >
+          Compute
         </button>
       </form>
     </div>

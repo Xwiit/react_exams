@@ -7,7 +7,9 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
-
+.examsTerms {
+  @apply text-gray-200 uppercase mt-6 p-2 text-center bg-forecolor1;
+}
 .input {
   @apply w-full p-4 rounded-lg outline-none my-2 h-4 text-textColor1;
 }
