@@ -9,16 +9,52 @@ import Dashboard from "./pages/Dashboard";
 // import Footer from "./componets/Footer";
 import Login from "./pages/Login";
 import StudentDetails from "./pages/StudentDetail";
+import { Protector } from "./feature/service";
+import ExamForm from "./componets/exams/FirstTermExamForm";
+import AppLayout from "./pages/AppLayout";
+import ResultPreview from "./componets/ResultPreview";
+import EditFirstTerm from "./componets/editScores/EditFirstTerm";
+import DeleteFirstTermResult from "./componets/delete/DeleteFirstTermResult";
+import PsyAffective from "./componets/psyAffective/firstTermPsyAffective";
+import TermSession from "./componets/Session";
+import Remarks from "./componets/remark/Remarks";
 
 function App() {
   const router = Router([
     {
-      path: "/dashboard",
-      element: <Dashboard />,
+      element: <AppLayout />,
       children: [
         {
-          path: "studentDetails/:id",
-          element: <StudentDetails />,
+          path: "/dashboard",
+          element: <Protector Component={<Dashboard />} />,
+        },
+        {
+          path: "/first-term-exam",
+          element: <Protector Component={<ExamForm />} />,
+        },
+        {
+          path: "/first-term-result",
+          element: <Protector Component={<ResultPreview />} />,
+        },
+        {
+          path: "/edit-first-term-result",
+          element: <Protector Component={<EditFirstTerm />} />,
+        },
+        {
+          path: "/delete-first-term-result",
+          element: <Protector Component={<DeleteFirstTermResult />} />,
+        },
+        {
+          path: "/first-term-affective-psy",
+          element: <Protector Component={<PsyAffective />} />,
+        },
+        {
+          path: "/session",
+          element: <Protector Component={<TermSession />} />,
+        },
+        {
+          path: "/remarks",
+          element: <Protector Component={<Remarks />} />,
         },
       ],
     },

@@ -7,8 +7,14 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+.desicionBtn {
+  @apply text-center m-1 rounded-md uppercase text-gray-200 cursor-pointer w-auto p-1 cursor-pointer shadow-2xl text-sm;
+}
+.formSubject {
+  @apply text-xl p-2 border-b-2 uppercase hover:bg-forecolor1 bg-background text-gray-300;
+}
 .examsTerms {
-  @apply text-gray-200 uppercase mt-6 p-2 text-center bg-forecolor1;
+  @apply uppercase mt-6 text-3xl  p-2 text-center h-8;
 }
 .input {
   @apply w-full p-4 rounded-lg outline-none my-2 h-4 text-textColor1;
@@ -26,14 +32,27 @@ body {
   @apply text-sm w-[80%] table-auto text-gray-200 mt-4 uppercase;
 }
 .studentDetailsTable > thead {
-  @apply bg-forecolor1;
+  @apply bg-forecolor1 w-full;
 }
 .studentDetailsTable > thead > tr > td {
-  @apply p-2;
+  @apply p-2 text-sm;
 }
 .studentDetailsTable > thead > tr {
   @apply border-s;
 }
 .studentDetailsTable > tbody > tr > td {
   @apply p-2 border-2;
+}
+.modal {
+  @apply absolute w-full h-screen transition-all bg-gray-500/80  flex justify-center items-center bg-gray-600/80;
+}
+
+.resultTable {
+}
+.resultTable > thead > tr > th {
+  @apply text-gray-500 border-2  text-sm font-semibold border-gray-600 py-1 uppercase;
+}
+
+.resultTable > tbody > tr > td {
+  @apply text-gray-500 border-2 border-gray-600 p-1 text-sm uppercase;
 }

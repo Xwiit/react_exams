@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchStudent = createAsyncThunk(
+export const fetchStudentDetials = createAsyncThunk(
   "fetch/studentSlice",
   async function getStudent(studentId) {
     console.log(studentId);
     try {
       const url = `http://localhost:1337/api/students/${studentId}?populate=*`;
       const response = await axios.get(url);
-      return response.data;
+      return response.data.data;
     } catch (error) {
       console.log(error);
     }
@@ -25,14 +25,14 @@ const studentDetailSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchStudent.pending, (state) => {
+      .addCase(fetchStudentDetials.pending, (state) => {
         state.message = "Pending";
       })
-      .addCase(fetchStudent.fulfilled, (state, action) => {
+      .addCase(fetchStudentDetials.fulfilled, (state, action) => {
         state.message = "Successful";
         state.stdData = action.payload;
       })
-      .addCase(fetchStudent.rejected, (state) => {
+      .addCase(fetchStudentDetials.rejected, (state) => {
         state.message = "Rejected";
       });
   },

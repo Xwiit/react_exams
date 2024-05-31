@@ -23,7 +23,7 @@ function Login() {
     dispatch(teacherLogin(teacherLoginData)).then((result) => {
       if (result.payload) {
         toast.success("Login Successful");
-        navigate("/dashboard");
+        navigate("/session");
       } else {
         toast.error("Login Failed");
       }

@@ -1,53 +1,66 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Button from "../componets/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { setStudentList, setMath } from "../feature/uiOperationSlice";
+import {
+  // setStudentList,
+  setShowResult,
+  setShowExamForm,
+  setEditModal,
+} from "../feature/uiOperationSlice";
+import { useNavigate } from "react-router-dom";
+
+// import { fetchResult } from "../feature/fetchResultSlices/firstTerm/fetchFirstTerm";
+import { Link } from "react-router-dom";
+// import { fetchPsychomotor } from "../feature/fetchResultSlices/firstTerm/fetchPsychomotor";
+import { fetchResults } from "../feature/fetchResultSlices/firstTerm/fetchFirstTerm";
+import { useEffect, useState } from "react";
+import { getStduent } from "../feature/service";
 // import { subjects } from "../feature/subjects";
 
 function StudentDetail() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const [currentStudent, setCurrentStudent] = useState({});
 
-  //This function changes the state of the math in the uiOperationslice from false to true
-  function handleSetMath() {
-    dispatch(setMath(true));
-  }
-  //This function changes the state of the english in the uiOperationslice from false to true
-  function handleSetEnglish() {
-    dispatch(setMath(true));
+  // useEffect(() => {
+  //   const rawStudent = localStorage.getItem("student");
+  //   const student = JSON.parse(rawStudent);
+  //   const currentStudent = student;
+  //   setCurrentStudent(currentStudent);
+  // }, []);
+  const stdDetails = getStduent();
+
+  // this variable fetches the current student from the Student Detail Slice
+  const currentStudent = useSelector((state) => state.studentDetail.stdData);
+
+  //This function changes the state of the exam form in the uiOperationslice from false to true
+  function handleShowExamForm() {
+    dispatch(setShowExamForm(true));
   }
 
-  // this variable accepts the studentId from the url as an object so i distructure and rename it as id
-  const { id } = useParams();
+  //this function sends the curent student id to the fetchResult Async Thunk in the fetchResultSlice aslo setting the show result component state to true.
+  // function fetchPsychomotor() {
+  //   dispatch(fetchResult(currentStudent.id));
+  // }
+  function handleFetchResult() {
+    // dispatch(fetchPsychomotor(currentStudent.id));
+    // dispatch(fetchResults(currentStudent.id));
+    // fetchPsychomotor();
+    dispatch(setShowResult(true));
+  }
+
+  function handleEditExamScores() {
+    dispatch(fetchResult(currentStudent.id));
+    dispatch(setEditModal(true));
+  }
 
   // This variable accepts student data from the async function below
-  const [student, setStudent] = useState();
 
-  // this useEffect function will fetch the student data from the server and set it to the state variable student
-  useEffect(() => {
-    async function getStudent() {
-      try {
-        const url = `http://localhost:1337/api/students/${Number(
-          id
-        )}?populate=*`;
-        const response = await axios.get(url);
-
-        setStudent(response.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getStudent();
-  }, [id]);
-
-  console.log(student);
   return (
     <div className="w-full mt-8">
       <div className="flex flex-col items-center  justify-center">
         <img
-          src={`http://localhost:1337${student?.attributes?.passport?.data?.attributes?.url}`}
-          alt={student?.attributes?.name}
+          src={`http://localhost:1337${stdDetails?.attributes?.passport?.data?.attributes?.url}`}
+          alt={currentStudent?.attributes?.name}
           className="rounded h-[8rem] w-[8rem] object-cover m-auto"
         />
         <table className="studentDetailsTable">
@@ -61,22 +74,55 @@ function StudentDetail() {
           <tbody>
             <tr>
               <td>name</td>
-              <td>{student?.attributes?.name}</td>
+              <td>{stdDetails?.attributes?.name}</td>
             </tr>
             <tr>
               <td>Admission No</td>
-              <td>{student?.attributes?.admissionNo}</td>
+              <td>{stdDetails?.attributes?.admissionNo}</td>
             </tr>
           </tbody>
         </table>
 
         <div className="p-2">
-          <h1 className="text-gray-200 p-2">Compute CA and Exam Results</h1>
-          <Button onClick={handleSetMath}>Mathematics</Button>
-          <Button onClick={handleSetEnglish}>English</Button>
-          <Button onClick={handleSetEnglish}>Agric Sc</Button>
-          <Button onClick={handleSetEnglish}>Biologyh</Button>
-          <Button onClick={handleSetEnglish}>Fine Art</Button>
+          <div className="mb-4 border-b-2 flex flex-wrap">
+            <Link
+              to="/first-term-exam"
+              className="desicionBtn  bg-background"
+              onClick={handleShowExamForm}
+            >
+              Compute 1st Term
+            </Link>
+            <Link
+              to="/first-term-result"
+              className="desicionBtn bg-background"
+              onClick={handleFetchResult}
+            >
+              View Result
+            </Link>
+            <Link
+              to="/edit-first-term-result"
+              onClick={handleEditExamScores}
+              className="desicionBtn  bg-background"
+            >
+              Edit
+            </Link>
+            <Link
+              to="/delete-first-term-result"
+              className="desicionBtn bg-delete"
+            >
+              Delete
+            </Link>
+            <Link
+              to="/first-term-affective-psy"
+              className="desicionBtn bg-background"
+            >
+              Psy. & Aff.
+            </Link>
+            <Link to="/remarks" className="desicionBtn bg-background">
+              Remarks
+            </Link>
+            <small className="desicionBtn  bg-background">Share</small>
+          </div>
         </div>
       </div>
       <div></div>

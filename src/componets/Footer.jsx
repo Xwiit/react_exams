@@ -2,6 +2,13 @@
 
 function handleLogout() {
   localStorage.removeItem("teacher");
+  localStorage.removeItem("session");
+  localStorage.removeItem("student");
+  localStorage.removeItem("remarks");
+  localStorage.removeItem("affectiveSkills");
+  localStorage.removeItem("psychomotor");
+  localStorage.removeItem("result");
+
   window.location.href = "/";
 }
 
@@ -11,7 +18,7 @@ function Footer() {
       <button onClick={handleLogout} className="btn">
         Logout
       </button>
-      <h3 className="text-gray-200 mt-2">Powered by XwiitTech</h3>
+      <h3 className="text-gray-200 mt-2 text-center">Powered by XwiitTech</h3>
     </>
   );
 }
