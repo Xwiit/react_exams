@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import getTeacher from "../feature/service";
+import getTeacher, { getAllStudents } from "../feature/service";
 import { fetchStudentDetials } from "../feature/studentDetailSlice";
 // import { Link } from "react-router-dom";
 import { setRightSideDisplay } from "../feature/uiOperationSlice";
@@ -8,7 +8,8 @@ import { fetchResults } from "../feature/fetchResultSlices/firstTerm/fetchFirstT
 function StudentList() {
   const dispatch = useDispatch();
 
-  const allStudents = useSelector((state) => state.fetchStudent.data);
+  // const allStudents = useSelector((state) => state.fetchStudent.data);
+  const allStudents = getAllStudents();
   console.log(allStudents);
   //   here i get the teacher details from the localstorage by colling the function that actually gets the the teacher details from the localstorage
   const teacher = getTeacher();

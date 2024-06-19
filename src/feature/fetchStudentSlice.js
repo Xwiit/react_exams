@@ -12,6 +12,7 @@ export const fetchStudent = createAsyncThunk(
           Authorization: `Bearer ${authToken}`,
         },
       });
+      localStorage.setItem("allStudents", JSON.stringify(response.data.data));
       console.log(response.data.data);
       return response.data.data;
     } catch (error) {

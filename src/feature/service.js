@@ -65,3 +65,11 @@ export function getRemark() {
     return null;
   }
 }
+export function getAllStudents() {
+  let students = localStorage.getItem("allStudents");
+  if (students) {
+    return JSON.parse(students);
+  } else {
+    return null;
+  }
+}
