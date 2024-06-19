@@ -40,12 +40,10 @@ function StudentList() {
                 <div className="relative">
                   <img
                     className="relative w-full object-cover"
-                    src={`https://strapi-176070-0.cloudclusters.net${student?.attributes?.passport?.data.attributes?.url}`}
+                    src={`https://strapi-176070-0.cloudclusters.net${student?.attributes?.passport?.data.map(
+                      (passport) => passport?.attributes?.url
+                    )}`}
                   />
-                  {console.log(
-                    "login out the url",
-                    student?.attributes?.passport?.data.attributes?.url
-                  )}
                 </div>
                 <small className="text-gray-200 p-2 hover:bg-lightColor hover:text-background text-center block uppercase w-full">
                   {student?.attributes?.name.substring(0, 10)}...
