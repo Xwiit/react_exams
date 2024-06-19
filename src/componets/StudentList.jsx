@@ -10,8 +10,8 @@ function StudentList() {
   const dispatch = useDispatch();
   // const [allStudents, setAllStudents] = useState(null);
 
-  // const allStudents = useSelector((state) => state.fetchStudent.data);
-  const allStudents = getAllStudents();
+  const allStudents = useSelector((state) => state.fetchStudent.data);
+  // const allStudents = getAllStudents();
   // useEffect(() => {
   //   setAllStudents(getAllStudents());
   // }, []);
@@ -27,7 +27,7 @@ function StudentList() {
   }
   return (
     <div className="flex">
-      {allStudents.length > 0 &&
+      {allStudents &&
         allStudents.map((student) => {
           if (student?.attributes?.stdClass === teacher?.user?.classTaking) {
             // console.log(student);
@@ -42,6 +42,10 @@ function StudentList() {
                     className="relative w-full object-cover"
                     src={`https://strapi-176070-0.cloudclusters.net${student?.attributes?.passport?.data.attributes?.url}`}
                   />
+                  {console.log(
+                    "login out the url",
+                    student?.attributes?.passport?.data.attributes?.url
+                  )}
                 </div>
                 <small className="text-gray-200 p-2 hover:bg-lightColor hover:text-background text-center block uppercase w-full">
                   {student?.attributes?.name.substring(0, 10)}...
