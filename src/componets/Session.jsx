@@ -32,7 +32,7 @@ function TermSession() {
     const data = session;
     console.log(data);
     try {
-      const url = `http://localhost:1337/api/sessions`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/sessions`;
       await axios
         .post(url, { data })
         .then((response) => {

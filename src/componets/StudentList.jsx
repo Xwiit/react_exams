@@ -40,7 +40,7 @@ function StudentList() {
                 <div className="relative">
                   <img
                     className="relative w-full object-cover"
-                    src={`http://localhost:1337${student?.attributes?.passport?.data?.attributes?.url}`}
+                    src={`https://strapi-176070-0.cloudclusters.net${student?.attributes?.passport?.data?.attributes?.url}`}
                   />
                 </div>
                 <small className="text-gray-200 p-2 hover:bg-lightColor hover:text-background text-center block uppercase w-full">

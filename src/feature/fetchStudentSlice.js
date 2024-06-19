@@ -5,7 +5,7 @@ export const fetchStudent = createAsyncThunk(
   "fetch/studenDetailtSlice",
   async function getStudent() {
     try {
-      const url = `http://localhost:1337/api/students?populate=*`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/students?populate=*`;
       const response = await axios.get(url);
       return response.data.data;
     } catch (error) {

@@ -26,7 +26,7 @@ function DeleteFirstTermResult() {
     e.preventDefault();
 
     try {
-      const url = `http://localhost:1337/api/first-term-exams/${scoreID}`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/first-term-exams/${scoreID}`;
       console.log(scoreID);
       await axios
         .delete(url)
