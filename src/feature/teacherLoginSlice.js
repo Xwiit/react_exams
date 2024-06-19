@@ -7,7 +7,7 @@ login data and pass it to the login function*/
 export const teacherLogin = createAsyncThunk(
   "teacher/Login",
   async function login(data) {
-    const url = `http://localhost:1337/api/auth/local`;
+    const url = `https://strapi-176070-0.cloudclusters.net/api/auth/local`;
     try {
       const response = await axios.post(url, data);
       if (response.data.jwt) {
