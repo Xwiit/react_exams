@@ -1,12 +1,17 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+const authToken = import.meta.env.VITE_ACCESS_TOKEN;
 export const fetchStudent = createAsyncThunk(
   "fetch/studenDetailtSlice",
   async function getStudent() {
     try {
       const url = `https://strapi-176070-0.cloudclusters.net/api/students?populate=*`;
-      const response = await axios.get(url);
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
       return response.data.data;
     } catch (error) {
       console.log(error);
