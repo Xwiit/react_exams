@@ -9,7 +9,7 @@ function StudentList() {
   const dispatch = useDispatch();
 
   const allStudents = useSelector((state) => state.fetchStudent.data);
-
+  console.log(allStudents);
   //   here i get the teacher details from the localstorage by colling the function that actually gets the the teacher details from the localstorage
   const teacher = getTeacher();
 
