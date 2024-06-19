@@ -4,12 +4,17 @@ import { fetchStudentDetials } from "../feature/studentDetailSlice";
 // import { Link } from "react-router-dom";
 import { setRightSideDisplay } from "../feature/uiOperationSlice";
 import { fetchResults } from "../feature/fetchResultSlices/firstTerm/fetchFirstTerm";
+import { useEffect, useState } from "react";
 
 function StudentList() {
   const dispatch = useDispatch();
+  const [allStudents, setAllStudents] = useState([]);
 
   // const allStudents = useSelector((state) => state.fetchStudent.data);
-  const allStudents = getAllStudents();
+  // const allStudents = getAllStudents();
+  useEffect(() => {
+    setAllStudents(getAllStudents());
+  }, []);
   console.log(allStudents);
   //   here i get the teacher details from the localstorage by colling the function that actually gets the the teacher details from the localstorage
   const teacher = getTeacher();
