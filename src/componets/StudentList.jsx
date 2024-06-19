@@ -26,12 +26,6 @@ function StudentList() {
           if (student.attributes.stdclass === teacher.user.classTaking) {
             // console.log(student);
             return (
-              // <Link
-              //   to={`/dashboard/studentDetails/${student.id}`}
-              //   key={student.id}
-              // >
-              // here i sent the student id to the fetchStudent function in
-              // fetchStudentSlice to get the student details on the Rightsidebar
               <div
                 key={student.id}
                 onClick={() => handleRightSidebarDisplay(student.id, student)}

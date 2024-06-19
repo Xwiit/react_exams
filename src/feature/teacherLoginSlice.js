@@ -4,12 +4,17 @@ import axios from "axios";
 /* this asynthunk function will allow teachers to login, the teacherLogin 
 function will be dispatch from the login page,it will collect the teacher's 
 login data and pass it to the login function*/
+const authToken = import.meta.env.VITE_ACCESS_TOKEN;
 export const teacherLogin = createAsyncThunk(
   "teacher/Login",
   async function login(data) {
     const url = `https://strapi-176070-0.cloudclusters.net/api/auth/local`;
     try {
-      const response = await axios.post(url, data);
+      const response = await axios.post(url, data, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
       if (response.data.jwt) {
         localStorage.setItem("teacher", JSON.stringify(response.data));
         return response.data;
