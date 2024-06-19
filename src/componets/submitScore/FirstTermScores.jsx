@@ -210,10 +210,19 @@ function FirstTermScores() {
     };
 
     console.log(data);
+    const authToken = import.meta.env.VITE_ACCESS_TOKEN;
     try {
       const url = `https://strapi-176070-0.cloudclusters.net/api/first-term-exams`;
       await axios
-        .post(url, { data })
+        .post(
+          url,
+          { data },
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        )
         .then((response) => {
           toast.success("Successfull", { autoClose: 1000 });
           console.log(response.data.data.error.message);
