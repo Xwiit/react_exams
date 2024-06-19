@@ -13,7 +13,7 @@ export const fetchStudent = createAsyncThunk(
         },
       });
       localStorage.setItem("allStudents", JSON.stringify(response.data.data));
-      console.log(response.data.data);
+      console.log("loging from student sliceAsyncThunk", response.data.data);
       return response.data.data;
     } catch (error) {
       console.log(error);
@@ -37,6 +37,7 @@ const studentSlice = createSlice({
       })
       .addCase(fetchStudent.fulfilled, (state, action) => {
         state.data = action.payload;
+        console.log("loging from studentSlice", state.data);
       })
       .addCase(fetchStudent.rejected, (state) => {
         state.message = "Rejected";
