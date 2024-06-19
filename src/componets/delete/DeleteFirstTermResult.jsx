@@ -21,7 +21,7 @@ function DeleteFirstTermResult() {
   useEffect(() => {
     fetchScores.data.map((score) => setScoreID(score.id));
   }, [fetchScores]); //
-
+  const authToken = import.meta.env.VITE_ACCESS_TOKEN;
   async function handleDeleteFirstTerm(e) {
     e.preventDefault();
 
@@ -29,7 +29,11 @@ function DeleteFirstTermResult() {
       const url = `https://strapi-176070-0.cloudclusters.net/api/first-term-exams/${scoreID}`;
       console.log(scoreID);
       await axios
-        .delete(url)
+        .delete(url, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        })
         .then((response) => {
           toast.success("Deleted", { autoClose: 1000 });
           console.log(response.data.data);

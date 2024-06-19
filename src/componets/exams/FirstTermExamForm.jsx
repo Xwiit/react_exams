@@ -11,7 +11,7 @@ function ExamForm() {
   // const currentStudent = useSelector((state) => state.studentDetail.stdData);
   const stdData = getStduent();
   const currentStudent = stdData;
-  console.log(currentStudent);
+  
 
   const [formData, setFormData] = useState({
     math: { subject: "mathematics", firstCA: "", secondCA: "", exam: "" },

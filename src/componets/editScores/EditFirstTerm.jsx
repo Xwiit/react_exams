@@ -58,7 +58,7 @@ function EditFirstTerm() {
       [subject]: { ...prevData[subject], [field]: value },
     }));
   }
-
+  const authToken = import.meta.env.VITE_ACCESS_TOKEN;
   //this function handles dispatch the formData to the gradeSlice form computation
   function handleEditFirstTerm(e) {
     e.preventDefault();
@@ -98,7 +98,15 @@ function EditFirstTerm() {
     try {
       const url = `https://strapi-176070-0.cloudclusters.net/api/first-term-exams/${scoreID}`;
       await axios
-        .put(url, { data })
+        .put(
+          url,
+          { data },
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        )
         .then((response) => {
           toast.success("Editted", { autoClose: 1000 });
           console.log(response.data.data);

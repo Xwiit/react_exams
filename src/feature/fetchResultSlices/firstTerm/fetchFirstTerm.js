@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const authToken = import.meta.env.VITE_ACCESS_TOKEN;
 //fetch the results
 export const fetchResults = createAsyncThunk(
   "fetch/resultSlice",
@@ -15,11 +16,31 @@ export const fetchResults = createAsyncThunk(
     try {
       const [result, psychomotor, affective, session, remarks] =
         await Promise.all([
-          axios.get(url1),
-          axios.get(url2),
-          axios.get(url3),
-          axios.get(url4),
-          axios.get(url5),
+          axios.get(url1, {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }),
+          axios.get(url2, {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }),
+          axios.get(url3, {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }),
+          axios.get(url4, {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }),
+          axios.get(url5, {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }),
         ]);
       // console.log(result.data), console.log(psychomotor.data);
       localStorage.setItem("result", JSON.stringify(result));
