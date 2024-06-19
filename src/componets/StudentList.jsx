@@ -28,8 +28,8 @@ function StudentList() {
   return (
     <div className="flex">
       {allStudents &&
-        allStudents?.map((student) => {
-          if (student.attributes.stdclass === teacher.user.classTaking) {
+        allStudents.map((student) => {
+          if (student?.attributes?.stdclass === teacher?.user?.classTaking) {
             // console.log(student);
             return (
               <div
