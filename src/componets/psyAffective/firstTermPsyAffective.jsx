@@ -85,7 +85,7 @@ function PsyAffective() {
     const data = affectiveFormData;
     console.log(data);
     try {
-      const url = `http://localhost:1337/api/affective-skills`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/affective-skills`;
       await axios
         .post(url, { data })
         .then((response) => {
@@ -115,7 +115,7 @@ function PsyAffective() {
     const data = psyFormData;
     console.log(data);
     try {
-      const url = `http://localhost:1337/api/psychomotors`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/psychomotors`;
       await axios
         .post(url, { data })
         .then((response) => {

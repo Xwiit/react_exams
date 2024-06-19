@@ -30,7 +30,7 @@ function Remarks() {
     const data = remark;
     // console.log(data);
     try {
-      const url = `http://localhost:1337/api/remarks`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/remarks`;
       await axios
         .post(url, { data })
         .then((response) => {

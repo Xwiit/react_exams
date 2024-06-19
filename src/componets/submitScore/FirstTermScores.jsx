@@ -211,7 +211,7 @@ function FirstTermScores() {
 
     console.log(data);
     try {
-      const url = `http://localhost:1337/api/first-term-exams`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/first-term-exams`;
       await axios
         .post(url, { data })
         .then((response) => {

@@ -6,11 +6,11 @@ export const fetchResults = createAsyncThunk(
   "fetch/resultSlice",
 
   async function getStdResults(stdID) {
-    const url1 = `http://localhost:1337/api/first-term-exams?filters[stdID][$eq]=${stdID}`;
-    const url2 = `http://localhost:1337/api/psychomotors?filters[stdID][$eq]=${stdID}`;
-    const url3 = `http://localhost:1337/api/affective-skills?filters[stdID][$eq]=${stdID}`;
-    const url4 = `http://localhost:1337/api/sessions`;
-    const url5 = `http://localhost:1337/api/remarks?filters[stdID][$eq]=${stdID}`;
+    const url1 = `https://strapi-176070-0.cloudclusters.net/api/first-term-exams?filters[stdID][$eq]=${stdID}`;
+    const url2 = `https://strapi-176070-0.cloudclusters.net/api/psychomotors?filters[stdID][$eq]=${stdID}`;
+    const url3 = `https://strapi-176070-0.cloudclusters.net/api/affective-skills?filters[stdID][$eq]=${stdID}`;
+    const url4 = `https://strapi-176070-0.cloudclusters.net/api/sessions`;
+    const url5 = `https://strapi-176070-0.cloudclusters.net/api/remarks?filters[stdID][$eq]=${stdID}`;
 
     try {
       const [result, psychomotor, affective, session, remarks] =
