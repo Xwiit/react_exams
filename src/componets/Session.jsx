@@ -9,6 +9,8 @@ import { getSession } from "../feature/service";
 
 function TermSession() {
   const navigate = useNavigate();
+  const sessionID = getSession();
+  const id = sessionID.id;
 
   const [session, setSession] = useState({
     term: "",
@@ -21,9 +23,8 @@ function TermSession() {
   function handleSessionChange(e) {
     setSession({ ...session, [e.target.name]: e.target.value });
   }
+  console.log(session);
 
-  const sessionID = getSession();
-  const id = sessionID.id;
   //this function handles the submission of the Psychomotor
   async function handleSessionSubmit(e) {
     e.preventDefault();
