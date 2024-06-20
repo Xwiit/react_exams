@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import axios from "axios";
+import { getSession } from "../feature/service";
 
 function TermSession() {
   const navigate = useNavigate();
@@ -28,13 +29,22 @@ function TermSession() {
       toast.error("Kindly Select The Academic Term", { autoClose: 1000 });
       return;
     }
-
+    const session = getSession();
     const data = session;
-    console.log(data);
+    // console.log(data);
+    const authToken = import.meta.env.VITE_ACCESS_TOKEN;
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/sessions`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/sessions/${session.id}`;
       await axios
-        .post(url, { data })
+        .put(
+          url,
+          { data },
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        )
         .then((response) => {
           toast.success("Successfull", { autoClose: 1000 });
           console.log(response.data.data);
