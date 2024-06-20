@@ -10,6 +10,7 @@ import { current } from "@reduxjs/toolkit";
 function PsyAffective() {
   const dispatch = useDispatch();
   const [scoreID, setScoreID] = useState(0);
+  const authToken = import.meta.env.VITE_ACCESS_TOKEN;
 
   //   //fetching the exam record of the current student so i can get its id for editting
   //   const fetchScores = useSelector((state) => state.firstTermResult.result);
@@ -84,7 +85,7 @@ function PsyAffective() {
     e.preventDefault();
     const data = affectiveFormData;
     // console.log(data);
-    const authToken = import.meta.env.VITE_ACCESS_TOKEN;
+
     try {
       const url = `https://strapi-176070-0.cloudclusters.net/api/affective-skills`;
       await axios
@@ -126,7 +127,15 @@ function PsyAffective() {
     try {
       const url = `https://strapi-176070-0.cloudclusters.net/api/psychomotors`;
       await axios
-        .post(url, { data })
+        .post(
+          url,
+          { data },
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        )
         .then((response) => {
           toast.success("Successfull", { autoClose: 1000 });
           console.log(response.data.data);

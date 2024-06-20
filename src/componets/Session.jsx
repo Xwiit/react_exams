@@ -29,12 +29,13 @@ function TermSession() {
       toast.error("Kindly Select The Academic Term", { autoClose: 1000 });
       return;
     }
-    const session = getSession();
+    const sessionID = getSession();
+    console.log(sessionID);
     const data = session;
     // console.log(data);
     const authToken = import.meta.env.VITE_ACCESS_TOKEN;
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/sessions/${session.id}`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/sessions/${sessionID.id}`;
       await axios
         .put(
           url,
