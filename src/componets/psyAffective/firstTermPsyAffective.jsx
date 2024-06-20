@@ -50,7 +50,7 @@ function PsyAffective() {
   const { name } = currentStudent;
   //initialling the formData with empty objects
   const [affectiveFormData, setAffectiveFormData] = useState({
-    stdID: id,
+    stdID: currentStudent.id,
     puntuality: "",
     politeness: "",
     neatness: "",
@@ -62,7 +62,7 @@ function PsyAffective() {
     attitude: "",
   });
   const [psyFormData, setPsyFormData] = useState({
-    stdID: id,
+    stdID: currentStudent.id,
     handwriting: "",
     verbalFluency: "",
     sport: "",
@@ -185,7 +185,7 @@ function PsyAffective() {
             className="input"
             value={Number(affectiveFormData.stdID)}
             onChange={handleAffectiveChange}
-            hidden
+            disabled
           />
 
           {/* mathematics */}
@@ -294,7 +294,7 @@ function PsyAffective() {
             className="input"
             value={Number(psyFormData.stdID)}
             onChange={handlePsycomotorChange}
-            hidden
+            disabled
           />
           <div className="mb-2">
             <input
