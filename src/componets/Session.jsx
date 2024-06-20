@@ -48,19 +48,9 @@ function TermSession() {
         )
         .then((response) => {
           toast.success("Successfull", { autoClose: 1000 });
-          console.log(response.data.data);
         })
         .catch((err) => {
           console.log(err);
-          if (
-            err.response.data.error.message === "This attribute must be unique"
-          ) {
-            toast.error(
-              "You have computed this student Psychomotor, kindly edit, or delete.",
-              { autoClose: 2000 }
-            );
-            console.log(err);
-          }
         });
     } catch (error) {
       console.log(error);
