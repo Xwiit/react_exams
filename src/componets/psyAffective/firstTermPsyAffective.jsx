@@ -6,9 +6,11 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { getStduent } from "../../feature/service";
 import { current } from "@reduxjs/toolkit";
+import { useParams } from "react-router-dom";
 
 function PsyAffective() {
   const dispatch = useDispatch();
+  const { id } = useParams();
   const [scoreID, setScoreID] = useState(0);
   const authToken = import.meta.env.VITE_ACCESS_TOKEN;
 
@@ -48,7 +50,7 @@ function PsyAffective() {
   const { name } = currentStudent;
   //initialling the formData with empty objects
   const [affectiveFormData, setAffectiveFormData] = useState({
-    stdID: currentStudent.id,
+    stdID: id,
     puntuality: "",
     politeness: "",
     neatness: "",
@@ -60,7 +62,7 @@ function PsyAffective() {
     attitude: "",
   });
   const [psyFormData, setPsyFormData] = useState({
-    stdID: currentStudent.id,
+    stdID: id,
     handwriting: "",
     verbalFluency: "",
     sport: "",
