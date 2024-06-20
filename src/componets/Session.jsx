@@ -11,6 +11,7 @@ function TermSession() {
   const navigate = useNavigate();
   const sessionID = getSession();
   const id = sessionID.data.data.id;
+  console.log(sessionID);
 
   const [session, setSession] = useState({
     term: "",
