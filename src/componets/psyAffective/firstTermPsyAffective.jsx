@@ -40,10 +40,10 @@ function PsyAffective() {
   //   );
 
   // I fetch the current student here to get his name on the edit form
-  // const currentStudent = useSelector((state) => state.studentDetail.stdData);
+  const currentStudentt = useSelector((state) => state.studentDetail.stdData);
 
-  const stdData = getStduent();
-  const currentStudent = stdData.attributes;
+  // const stdData = getStduent();
+  const currentStudent = currentStudentt.attributes;
   const { name } = currentStudent;
   //initialling the formData with empty objects
   const [affectiveFormData, setAffectiveFormData] = useState({
@@ -123,7 +123,7 @@ function PsyAffective() {
   async function handlePsychomotorSubmit(e) {
     e.preventDefault();
     const data = psyFormData;
-    console.log(data);
+    // console.log(data);
     try {
       const url = `https://strapi-176070-0.cloudclusters.net/api/psychomotors`;
       await axios
