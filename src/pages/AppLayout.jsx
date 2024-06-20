@@ -21,7 +21,7 @@ function AppLayout() {
   return (
     <div className=" h-8 flex  justify-between w-full sm:h-screen fixed">
       <LeftSidebar />
-      <main className="w-full pb-8 h-screen bg-background">
+      <main className="w-full pb-16 h-screen bg-background">
         <div className="sm:hidden flex items-center justify-between h-[5%] bg-forecolor">
           <button
             onClick={handleLeftSideview}
