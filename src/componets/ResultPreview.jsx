@@ -160,7 +160,7 @@ function ResultPreview() {
         </div>
         <div className="flex justify-between">
           <button onClick={handleDownloadPdf}>download</button>
-          <button onClick={handlePrint}>Print</button>
+          {/* <button onClick={handlePrint}>Print</button> */}
         </div>
       </div>
     </div>

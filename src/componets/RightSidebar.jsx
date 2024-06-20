@@ -28,7 +28,7 @@ function RightSidebar() {
       <div
         // modal background
         className={
-          displayStudentDetails ? "sm:hidden w-full h-screen bg-gray-500 " : ""
+          displayStudentDetails ? "sm:hidden w-full h-[90] bg-gray-500 " : ""
         }
       >
         <div
