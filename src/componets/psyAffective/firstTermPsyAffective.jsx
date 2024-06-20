@@ -47,11 +47,11 @@ function PsyAffective() {
   const studentData = getStduent();
   const { name } = studentData.attributes;
 
-  const currentStd = studentData.attributes;
+  // const currentStd = studentData.attributes;
   // let name = currentStudent.name;
   //initialling the formData with empty objects
   const [affectiveFormData, setAffectiveFormData] = useState({
-    stdID: currentStd.id,
+    stdID: studentData.id,
     puntuality: "",
     politeness: "",
     neatness: "",
@@ -63,7 +63,7 @@ function PsyAffective() {
     attitude: "",
   });
   const [psyFormData, setPsyFormData] = useState({
-    stdID: currentStd.id,
+    stdID: studentData.id,
     handwriting: "",
     verbalFluency: "",
     sport: "",
