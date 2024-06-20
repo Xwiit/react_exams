@@ -19,18 +19,18 @@ import { getStduent } from "../feature/service";
 function StudentDetail() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [currentStudent, setCurrentStudent] = useState({});
+  const [stdDetails, setStdDetails] = useState(null);
 
-  // useEffect(() => {
-  //   const rawStudent = localStorage.getItem("student");
-  //   const student = JSON.parse(rawStudent);
-  //   const currentStudent = student;
-  //   setCurrentStudent(currentStudent);
-  // }, []);
-  const stdDetails = getStduent();
+  useEffect(() => {
+    //   const rawStudent = localStorage.getItem("student");
+    //   const student = JSON.parse(rawStudent);
+    //   const currentStudent = student;
+    setStdDetails(getStduent());
+  }, []);
+  // const stdDetails = getStduent();
 
   // this variable fetches the current student from the Student Detail Slice
-  const currentStudent = useSelector((state) => state.studentDetail.stdData);
+  // const currentStudent = useSelector((state) => state.studentDetail.stdData);
 
   //This function changes the state of the exam form in the uiOperationslice from false to true
   function handleShowExamForm() {
@@ -48,10 +48,10 @@ function StudentDetail() {
     dispatch(setShowResult(true));
   }
 
-  function handleEditExamScores() {
-    dispatch(fetchResult(currentStudent.id));
-    dispatch(setEditModal(true));
-  }
+  // function handleEditExamScores() {
+  //   dispatch(fetchResult(currentStudent.id));
+  //   dispatch(setEditModal(true));
+  // }
 
   // This variable accepts student data from the async function below
 
@@ -59,8 +59,10 @@ function StudentDetail() {
     <div className="w-full mt-8">
       <div className="flex flex-col items-center  justify-center">
         <img
-          src={`http://localhost:1337${stdDetails?.attributes?.passport?.data?.attributes?.url}`}
-          alt={currentStudent?.attributes?.name}
+          src={`https://strapi-176070-0.cloudclusters.net${stdDetails?.attributes?.passport?.data.map(
+            (passport) => passport?.attributes?.url
+          )}`}
+          alt={stdDetails?.attributes?.name}
           className="rounded h-[8rem] w-[8rem] object-cover m-auto"
         />
         <table className="studentDetailsTable">
