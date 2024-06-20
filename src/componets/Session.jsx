@@ -30,12 +30,12 @@ function TermSession() {
       return;
     }
     const sessionID = getSession();
-    console.log(sessionID);
+    const { id } = sessionID.data.data.attributes;
     const data = session;
     // console.log(data);
     const authToken = import.meta.env.VITE_ACCESS_TOKEN;
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/sessions/${sessionID.id}`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/sessions/${id}`;
       await axios
         .put(
           url,
