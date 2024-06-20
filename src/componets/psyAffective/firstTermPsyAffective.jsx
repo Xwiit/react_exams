@@ -47,7 +47,7 @@ function PsyAffective() {
   // const stdData = getStduent();
   // console.log(stdData);
   const currentStudent = currentStd.attributes;
-  const { name } = currentStudent;
+  const name = currentStudent.name;
   //initialling the formData with empty objects
   const [affectiveFormData, setAffectiveFormData] = useState({
     stdID: currentStd.id,
@@ -173,7 +173,7 @@ function PsyAffective() {
       <div className="w-[90%] sm:w-[45%] h-auto p-4  bg-gray-500 rounded-md mb-[1rem]">
         <div>
           <h2 className="uppercase text-xl mb-2 text-center  text-gray-200">
-            {`${name}'s: Affective Skills`}
+            {`${name ? name : null}'s: Affective Skills`}
           </h2>
         </div>
         <form onSubmit={handleAffectiveSubmit}>
