@@ -11,7 +11,7 @@ function TermSession() {
   const navigate = useNavigate();
   const academicData = getSession();
   const academicSession = academicData?.data?.data;
-  const id = academicSession.id;
+  const id = academicSession[0].id;
 
   const [session, setSession] = useState({
     term: "",
