@@ -41,7 +41,7 @@ function PsyAffective() {
 
   // I fetch the current student here to get his name on the edit form
   const currentStudentt = useSelector((state) => state.studentDetail.stdData);
-
+  console.log("loging from psychomotor", currentStudent);
   // const stdData = getStduent();
   const currentStudent = currentStudentt.attributes;
   const { name } = currentStudent;
