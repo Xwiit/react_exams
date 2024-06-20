@@ -83,11 +83,20 @@ function PsyAffective() {
   async function handleAffectiveSubmit(e) {
     e.preventDefault();
     const data = affectiveFormData;
-    console.log(data);
+    // console.log(data);
+    const authToken = import.meta.env.VITE_ACCESS_TOKEN;
     try {
       const url = `https://strapi-176070-0.cloudclusters.net/api/affective-skills`;
       await axios
-        .post(url, { data })
+        .post(
+          url,
+          { data },
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        )
         .then((response) => {
           toast.success("Successfull", { autoClose: 1000 });
           console.log(response.data.data);

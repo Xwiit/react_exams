@@ -29,10 +29,19 @@ function Remarks() {
     console.log(remark);
     const data = remark;
     // console.log(data);
+    const authToken = import.meta.env.VITE_ACCESS_TOKEN;
     try {
       const url = `https://strapi-176070-0.cloudclusters.net/api/remarks`;
       await axios
-        .post(url, { data })
+        .post(
+          url,
+          { data },
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        )
         .then((response) => {
           toast.success("Successfull", { autoClose: 1000 });
           console.log(response.data.data);

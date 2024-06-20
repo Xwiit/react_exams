@@ -92,7 +92,9 @@ function ResultPreview() {
               </h3>
             </div>
             <img
-              src={`http://localhost:1337${stdData?.attributes?.passport?.data?.attributes?.url}`}
+              src={`https://strapi-176070-0.cloudclusters.net${stdData?.attributes?.passport?.data.map(
+                (passport) => passport?.attributes?.url
+              )}`}
               alt=""
               className="w-[15%] h-[15%] rounded-xl shadow-2xl"
             />
