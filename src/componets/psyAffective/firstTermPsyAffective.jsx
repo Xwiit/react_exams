@@ -348,6 +348,7 @@ function PsyAffective() {
             Submit
           </button>
         </form>
+        <div className="w-full sm:hidden p-2 h-2">{/* <Footer /> */}</div>
       </div>
     </div>
   );

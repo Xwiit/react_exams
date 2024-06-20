@@ -11,7 +11,6 @@ function ExamForm() {
   // const currentStudent = useSelector((state) => state.studentDetail.stdData);
   const stdData = getStduent();
   const currentStudent = stdData;
-  
 
   const [formData, setFormData] = useState({
     math: { subject: "mathematics", firstCA: "", secondCA: "", exam: "" },
@@ -363,6 +362,7 @@ function ExamForm() {
           </button>
           <FirstTermScores />
         </form>
+        <div className="w-full sm:hidden p-2 h-2">{/* <Footer /> */}</div>
       </div>
     </div>
   );
