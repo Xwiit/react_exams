@@ -8,6 +8,7 @@ function handleLogout() {
   localStorage.removeItem("affectiveSkills");
   localStorage.removeItem("psychomotor");
   localStorage.removeItem("result");
+  localStorage.removeItem("allStudents");
 
   window.location.href = "/";
 }
