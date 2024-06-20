@@ -42,15 +42,13 @@ function PsyAffective() {
   //   );
 
   // I fetch the current student here to get his name on the edit form
-  const currentStd = useSelector((state) => state.studentDetail.stdData);
+  // const currentStd = useSelector((state) => state.studentDetail.stdData);
 
-  // const stdData = getStduent();
-  // console.log(stdData);
-  const currentStudent = currentStd.attributes;
-  let name = currentStudent.name;
-  if (name === undefined) {
-    name === null;
-  }
+  const studentData = getStduent();
+  const { name } = studentData.attributes;
+
+  const currentStd = studentData.attributes;
+  // let name = currentStudent.name;
   //initialling the formData with empty objects
   const [affectiveFormData, setAffectiveFormData] = useState({
     stdID: currentStd.id,
