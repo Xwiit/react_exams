@@ -34,7 +34,7 @@ function Header() {
       <div
         className={
           leftSideDisplay
-            ? "bg-forecolor block sm:hidden absolute left-0  h-screen pb-30 w-[70%] flex flex-col transition-all z-10 flex flex-col justify-between"
+            ? "bg-forecolor block sm:hidden absolute left-0  h-screen pb-30 w-[70%] flex flex-col transition-all z-10 flex flex-col justify-evenly"
             : "hidden"
         }
       >

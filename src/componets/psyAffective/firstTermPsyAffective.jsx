@@ -168,10 +168,10 @@ function PsyAffective() {
 
   return (
     <div
-      className="overflow-y-scroll w-[100%]  p-8 h-screen flex flex-col items-center justify-evenly pb-30 sm:pb-16 sm:flex-row sm:justify-between sm:flex scrollbar-thin
+      className="overflow-y-scroll w-[100%] p-8 h-screen flex flex-col items-center justify-evenly pb-16 sm:flex-row sm:justify-between sm:flex scrollbar-thin
     scrollbar-webkit"
     >
-      <div className="w-[90%] sm:w-[45%] h-[90%] sm:h-auto p-4  bg-gray-500 rounded-md mb-[1rem]">
+      <div className="w-[90%] sm:w-[45%] h-auto p-4  bg-gray-500 rounded-md mb-[1rem]">
         <div>
           <h2 className="uppercase text-xl mb-2 text-center  text-gray-200">
             {`${name ? name : null}'s: Affective Skills`}
