@@ -10,7 +10,7 @@ import { getSession } from "../feature/service";
 function TermSession() {
   const navigate = useNavigate();
   const sessionID = getSession();
-  const id = sessionID.id;
+  const id = sessionID.data.data.id;
 
   const [session, setSession] = useState({
     term: "",
