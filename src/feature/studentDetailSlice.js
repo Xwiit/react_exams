@@ -5,9 +5,14 @@ export const fetchStudentDetials = createAsyncThunk(
   "fetch/studentSlice",
   async function getStudent(studentId) {
     console.log(studentId);
+    const authToken = import.meta.env.VITE_ACCESS_TOKEN;
     try {
       const url = `https://strapi-176070-0.cloudclusters.net/api/students/${studentId}?populate=*`;
-      const response = await axios.get(url);
+      const response = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
       return response.data.data;
     } catch (error) {
       console.log(error);
