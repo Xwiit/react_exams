@@ -1,3 +1,7 @@
+/**This session is complicated, for this to and  to aviod creating edit button, one session must exist in the data base,
+ *
+ * so i fetched back the session and us the id to edit anytime the teacher wants to create a session.
+ */
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
