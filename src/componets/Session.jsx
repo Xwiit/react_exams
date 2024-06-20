@@ -22,6 +22,8 @@ function TermSession() {
     setSession({ ...session, [e.target.name]: e.target.value });
   }
 
+  const sessionID = getSession();
+  const id = sessionID.id;
   //this function handles the submission of the Psychomotor
   async function handleSessionSubmit(e) {
     e.preventDefault();
@@ -29,8 +31,7 @@ function TermSession() {
       toast.error("Kindly Select The Academic Term", { autoClose: 1000 });
       return;
     }
-    const sessionID = getSession();
-    const id = sessionID.id;
+
     const data = session;
     // console.log(data);
     const authToken = import.meta.env.VITE_ACCESS_TOKEN;
