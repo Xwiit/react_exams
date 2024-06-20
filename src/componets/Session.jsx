@@ -30,7 +30,7 @@ function TermSession() {
       return;
     }
     const sessionID = getSession();
-    const { id } = sessionID.data.data.attributes;
+    const id = sessionID.data.data.id;
     const data = session;
     // console.log(data);
     const authToken = import.meta.env.VITE_ACCESS_TOKEN;
