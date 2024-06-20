@@ -82,6 +82,14 @@ function StudentDetail() {
               <td>Admission No</td>
               <td>{stdDetails?.attributes?.admissionNo}</td>
             </tr>
+            <tr>
+              <td>Admission No</td>
+              <td>{stdDetails?.attributes?.age}</td>
+            </tr>
+            <tr>
+              <td>Admission No</td>
+              <td>{stdDetails?.attributes?.stdClass}</td>
+            </tr>
           </tbody>
         </table>
 
