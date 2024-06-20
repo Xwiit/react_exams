@@ -47,7 +47,10 @@ function PsyAffective() {
   // const stdData = getStduent();
   // console.log(stdData);
   const currentStudent = currentStd.attributes;
-  const name = currentStudent.name;
+  let name = currentStudent.name;
+  if (name === undefined) {
+    name === null;
+  }
   //initialling the formData with empty objects
   const [affectiveFormData, setAffectiveFormData] = useState({
     stdID: currentStd.id,
