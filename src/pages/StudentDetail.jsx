@@ -6,7 +6,7 @@ import {
   setShowExamForm,
   setEditModal,
 } from "../feature/uiOperationSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 // import { fetchResult } from "../feature/fetchResultSlices/firstTerm/fetchFirstTerm";
 import { Link } from "react-router-dom";
@@ -20,13 +20,13 @@ function StudentDetail() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [stdDetails, setStdDetails] = useState(null);
-
+  const { id } = useParams();
   useEffect(() => {
     //   const rawStudent = localStorage.getItem("student");
     //   const student = JSON.parse(rawStudent);
     //   const currentStudent = student;
     setStdDetails(getStduent());
-  }, []);
+  }, [id]);
   // const stdDetails = getStduent();
 
   // this variable fetches the current student from the Student Detail Slice
