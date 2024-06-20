@@ -48,10 +48,10 @@ function StudentDetail() {
     dispatch(setShowResult(true));
   }
 
-  // function handleEditExamScores() {
-  //   dispatch(fetchResult(currentStudent.id));
-  //   dispatch(setEditModal(true));
-  // }
+  function handleEditExamScores() {
+    dispatch(fetchResults(stdDetails.id));
+    dispatch(setEditModal(true));
+  }
 
   // This variable accepts student data from the async function below
 
