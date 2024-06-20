@@ -19,18 +19,18 @@ import { getStduent } from "../feature/service";
 function StudentDetail() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [stdDetails, setStdDetails] = useState(null);
+  // const [stdDetails, setStdDetails] = useState(null);
   // const { id } = useParams();
-  useEffect(() => {
-    //   const rawStudent = localStorage.getItem("student");
-    //   const student = JSON.parse(rawStudent);
-    //   const currentStudent = student;
-    setStdDetails(getStduent());
-  }, [stdDetails.id]);
+  // useEffect(() => {
+  //   //   const rawStudent = localStorage.getItem("student");
+  //   //   const student = JSON.parse(rawStudent);
+  //   //   const currentStudent = student;
+  //   setStdDetails(getStduent());
+  // }, []);
   // const stdDetails = getStduent();
 
   // this variable fetches the current student from the Student Detail Slice
-  // const currentStudent = useSelector((state) => state.studentDetail.stdData);
+  const stdDetails = useSelector((state) => state.studentDetail.stdData);
 
   //This function changes the state of the exam form in the uiOperationslice from false to true
   function handleShowExamForm() {
