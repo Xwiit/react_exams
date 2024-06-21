@@ -26,10 +26,12 @@ function EditPsyAffective() {
   // I fetch the student Affective skills from the service file
   const rawAffectiveSkills = getAffectiveSkills();
   const affectiveSkills = rawAffectiveSkills?.data?.data;
+  console.log("affectiveSkill", affectiveSkills);
 
   // I fetch the student Psychomotor skills from the service file
   const rawPsy = getPsychomotor();
   const psychomotor = rawPsy?.data?.data;
+  console.log("psychomotor", psychomotor);
 
   const [affectiveFormData, setAffectiveFormData] = useState({
     stdID: studentData.id,
@@ -72,9 +74,9 @@ function EditPsyAffective() {
     console.log("Afective skills", data);
 
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/affective-skills`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/affective-skills/${affectiveSkills.id}`;
       await axios
-        .post(
+        .put(
           url,
           { data },
           {
@@ -110,9 +112,9 @@ function EditPsyAffective() {
     const data = psyFormData;
     console.log("pyschomotor", data);
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/psychomotors`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/psychomotors/${psychomotor.id}`;
       await axios
-        .post(
+        .put(
           url,
           { data },
           {
@@ -169,7 +171,7 @@ function EditPsyAffective() {
                   placeholder="id"
                   required
                   className="input"
-                  value={Number(skill.attributes.stdID)}
+                  value={Number(affectiveFormData.stdID)}
                   onChange={handleAffectiveChange}
                   disabled
                 />
@@ -182,13 +184,13 @@ function EditPsyAffective() {
                     placeholder="puntuality"
                     required
                     className="input"
-                    value={skill.attributes.puntuality}
+                    value={affectiveFormData.puntuality}
                     onChange={handleAffectiveChange}
                   />
                   <input
                     type="number"
                     name="politeness"
-                    value={skill.attributes.politeness}
+                    value={affectiveFormData.politeness}
                     placeholder="politeness"
                     required
                     className="input"
@@ -199,7 +201,7 @@ function EditPsyAffective() {
                     type="number"
                     name="neatness"
                     placeholder="neatness"
-                    value={skill.attributes.neatness}
+                    value={affectiveFormData.neatness}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -208,7 +210,7 @@ function EditPsyAffective() {
                     type="number"
                     name="honesty"
                     placeholder="honesty"
-                    value={skill.attributes.honesty}
+                    value={affectiveFormData.honesty}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -217,7 +219,7 @@ function EditPsyAffective() {
                     type="number"
                     name="leadership"
                     placeholder="leadership"
-                    value={skill.attributes.leadership}
+                    value={affectiveFormData.leadership}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -226,7 +228,7 @@ function EditPsyAffective() {
                     type="number"
                     name="cooperation"
                     placeholder="cooperation"
-                    value={skill.attributes.cooperation}
+                    value={affectiveFormData.cooperation}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -235,7 +237,7 @@ function EditPsyAffective() {
                     type="number"
                     name="attentiveness"
                     placeholder="attentiveness"
-                    value={skill.attributes.attentiveness}
+                    value={affectiveFormData.attentiveness}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -244,7 +246,7 @@ function EditPsyAffective() {
                     type="number"
                     name="perserverance"
                     placeholder="perserverance"
-                    value={skill.attributes.perserverance}
+                    value={affectiveFormData.perserverance}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -253,7 +255,7 @@ function EditPsyAffective() {
                     type="number"
                     name="attitude"
                     placeholder="attitude"
-                    value={skill.attributes.attitude}
+                    value={affectiveFormData.attitude}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -270,11 +272,12 @@ function EditPsyAffective() {
       {/* pyschomotor inputation  */}
       <div className="w-[90%] sm:w-[45%] h-auto p-4  bg-gray-500 rounded-md">
         <div>
-          <h2 className="uppercase text-xl mb-2 text-center  text-gray-800">
+          <h2 className="uppercase text-xl mb-2 text-center  text-gray-200">
             {`${name}'s: Psychomotor`}
           </h2>
         </div>
         {psychomotor.map((psy) => {
+          console.log(psy);
           return (
             <>
               <form onSubmit={handlePsychomotorSubmit}>
@@ -284,7 +287,7 @@ function EditPsyAffective() {
                   placeholder="id"
                   required
                   className="input"
-                  value={Number(psy.attributes.stdID)}
+                  value={Number(psyFormData.stdID)}
                   onChange={handlePsycomotorChange}
                   disabled
                 />
@@ -295,13 +298,13 @@ function EditPsyAffective() {
                     placeholder="handwriting"
                     required
                     className="input"
-                    value={psy.attributes.handwriting}
+                    value={psyFormData.handwriting}
                     onChange={handlePsycomotorChange}
                   />
                   <input
                     type="number"
                     name="verbalFluency"
-                    value={psy.attributes.verbalFluency}
+                    value={psyFormData.verbalFluency}
                     placeholder="verbal fluency"
                     required
                     className="input"
@@ -312,7 +315,7 @@ function EditPsyAffective() {
                     type="number"
                     name="sport"
                     placeholder="sport"
-                    value={psy.attributes.sport}
+                    value={psyFormData.sport}
                     required
                     onChange={handlePsycomotorChange}
                   />
@@ -321,7 +324,7 @@ function EditPsyAffective() {
                     type="number"
                     name="handlingTools"
                     placeholder="handling tools"
-                    value={psy.attributes.handlingTools}
+                    value={psyFormData.handlingTools}
                     required
                     onChange={handlePsycomotorChange}
                   />
@@ -330,7 +333,7 @@ function EditPsyAffective() {
                     type="number"
                     name="drawing"
                     placeholder="drawing"
-                    value={psy.attributes.drawing}
+                    value={psyFormData.drawing}
                     required
                     onChange={handlePsycomotorChange}
                   />
