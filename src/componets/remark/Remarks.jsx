@@ -31,9 +31,9 @@ function Remarks() {
     // console.log(data);
     const authToken = import.meta.env.VITE_ACCESS_TOKEN;
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/remarks`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/remarks/${studentData.id}`;
       await axios
-        .post(
+        .put(
           url,
           { data },
           {
