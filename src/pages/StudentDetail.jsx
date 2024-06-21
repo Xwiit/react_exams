@@ -106,38 +106,35 @@ function StudentDetail() {
               View Result
             </Link>
             <Link
+              to="/first-term-affective-psy"
+              className="desicionBtn bg-background"
+            >
+              Psy. & Aff.
+            </Link>
+            <Link to="/remarks" className="desicionBtn bg-background">
+              Remarks
+            </Link>
+            <Link
               to="/edit-first-term-result"
               onClick={handleEditExamScores}
-              className="desicionBtn text-background  bg-lightColor"
+              className=" desicionBtn   bg-gray-900"
             >
               Edit Result
+            </Link>
+            <Link
+              to="/edit-psycomotor-affective-skills"
+              className="  desicionBtn bg-gray-900"
+            >
+              Edit Psy. & Aff.
+            </Link>
+            <Link to="/edit-remark" className="desicionBtn bg-gray-900">
+              Edit Remarks
             </Link>
             <Link
               to="/delete-first-term-result"
               className="desicionBtn bg-delete"
             >
               Delete
-            </Link>
-            <Link
-              to="/first-term-affective-psy"
-              className="desicionBtn bg-background"
-            >
-              Psy. & Aff.
-            </Link>
-            <Link
-              to="/edit-psycomotor-affective-skills"
-              className="desicionBtn text-background bg-lightColor"
-            >
-              Edit Psy. & Aff.
-            </Link>
-            <Link to="/remarks" className="desicionBtn bg-background">
-              Remarks
-            </Link>
-            <Link
-              to="/edit-remark"
-              className="desicionBtn text-background bg-lightColor"
-            >
-              Edit Remarks
             </Link>
             <small className="desicionBtn  bg-background">Share</small>
           </div>
