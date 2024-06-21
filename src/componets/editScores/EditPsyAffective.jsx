@@ -71,10 +71,10 @@ function EditPsyAffective() {
   async function handleAffectiveSubmit(e) {
     e.preventDefault();
     const data = affectiveFormData;
-    console.log("Afective skills", data);
-
+    // console.log("Afective skills", data);
+    const id = affectiveSkills[0].id;
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/affective-skills/${affectiveSkills.id}`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/affective-skills/${id}`;
       await axios
         .put(
           url,
@@ -111,8 +111,9 @@ function EditPsyAffective() {
     e.preventDefault();
     const data = psyFormData;
     console.log("pyschomotor", data);
+    const id = psychomotor[0].id;
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/psychomotors/${psychomotor.id}`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/psychomotors/${id}`;
       await axios
         .put(
           url,
