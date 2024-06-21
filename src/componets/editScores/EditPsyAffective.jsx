@@ -169,7 +169,7 @@ function EditPsyAffective() {
                   placeholder="id"
                   required
                   className="input"
-                  value={Number(affectiveFormData.stdID)}
+                  value={Number(skill.attributes.stdID)}
                   onChange={handleAffectiveChange}
                   disabled
                 />
@@ -182,13 +182,13 @@ function EditPsyAffective() {
                     placeholder="puntuality"
                     required
                     className="input"
-                    value={affectiveFormData.puntuality}
+                    value={skill.attributes.puntuality}
                     onChange={handleAffectiveChange}
                   />
                   <input
                     type="number"
                     name="politeness"
-                    value={affectiveFormData.politeness}
+                    value={skill.attributes.politeness}
                     placeholder="politeness"
                     required
                     className="input"
@@ -199,7 +199,7 @@ function EditPsyAffective() {
                     type="number"
                     name="neatness"
                     placeholder="neatness"
-                    value={affectiveFormData.neatness}
+                    value={skill.attributes.neatness}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -208,7 +208,7 @@ function EditPsyAffective() {
                     type="number"
                     name="honesty"
                     placeholder="honesty"
-                    value={affectiveFormData.honesty}
+                    value={skill.attributes.honesty}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -217,7 +217,7 @@ function EditPsyAffective() {
                     type="number"
                     name="leadership"
                     placeholder="leadership"
-                    value={affectiveFormData.leadership}
+                    value={skill.attributes.leadership}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -226,7 +226,7 @@ function EditPsyAffective() {
                     type="number"
                     name="cooperation"
                     placeholder="cooperation"
-                    value={affectiveFormData.cooperation}
+                    value={skill.attributes.cooperation}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -235,7 +235,7 @@ function EditPsyAffective() {
                     type="number"
                     name="attentiveness"
                     placeholder="attentiveness"
-                    value={affectiveFormData.attentiveness}
+                    value={skill.attributes.attentiveness}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -244,7 +244,7 @@ function EditPsyAffective() {
                     type="number"
                     name="perserverance"
                     placeholder="perserverance"
-                    value={affectiveFormData.perserverance}
+                    value={skill.attributes.perserverance}
                     required
                     onChange={handleAffectiveChange}
                   />
@@ -253,7 +253,7 @@ function EditPsyAffective() {
                     type="number"
                     name="attitude"
                     placeholder="attitude"
-                    value={affectiveFormData.attitude}
+                    value={skill.attributes.attitude}
                     required
                     onChange={handleAffectiveChange}
                   />

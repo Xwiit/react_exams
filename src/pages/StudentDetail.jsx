@@ -86,10 +86,6 @@ function StudentDetail() {
               <td>Age</td>
               <td>{stdDetails?.attributes?.age}</td>
             </tr>
-            <tr>
-              <td>Class</td>
-              <td>{stdDetails?.attributes?.stdClass}</td>
-            </tr>
           </tbody>
         </table>
 
@@ -112,7 +108,7 @@ function StudentDetail() {
             <Link
               to="/edit-first-term-result"
               onClick={handleEditExamScores}
-              className="desicionBtn  bg-background"
+              className="desicionBtn  bg-lightColor"
             >
               Edit Result
             </Link>
@@ -130,12 +126,15 @@ function StudentDetail() {
             </Link>
             <Link
               to="/edit-psycomotor-affective-skills"
-              className="desicionBtn bg-background"
+              className="desicionBtn bg-lightColor"
             >
               Edit Psy. & Aff.
             </Link>
-            <Link to="/edit-remark" className="desicionBtn bg-background">
+            <Link to="/remarks" className="desicionBtn bg-background">
               Remarks
+            </Link>
+            <Link to="/edit-remark" className="desicionBtn bg-lightColor">
+              Edit Remarks
             </Link>
             <small className="desicionBtn  bg-background">Share</small>
           </div>
