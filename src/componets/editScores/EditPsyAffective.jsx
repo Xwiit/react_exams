@@ -4,52 +4,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 import axios from "axios";
-import { getStduent } from "../../feature/service";
-import { current } from "@reduxjs/toolkit";
+import {
+  getAffectiveSkills,
+  getPsychomotor,
+  getSession,
+  getStduent,
+} from "../../feature/service";
+// import { current } from "@reduxjs/toolkit";
 import { useParams } from "react-router-dom";
 
-function PsyAffective() {
-  const dispatch = useDispatch();
-  const { id } = useParams();
-  const [scoreID, setScoreID] = useState(0);
+function EditPsyAffective() {
+  //   const dispatch = useDispatch();
+  //   const { id } = useParams();
+  //   const [scoreID, setScoreID] = useState(0);
   const authToken = import.meta.env.VITE_ACCESS_TOKEN;
 
-  //   //fetching the exam record of the current student so i can get its id for editting
-  //   const fetchScores = useSelector((state) => state.firstTermResult.result);
-
-  //   //fecting the current editted scores from the editScoreSlice
-  //   const stdID = useSelector((state) => state.editScores.subject.id);
-  //   const subject = useSelector(
-  //     (state) => state?.editScores?.subject?.subject?.subject?.subject
-  //   );
-  //   const firstCA = useSelector(
-  //     (state) => state?.editScores?.subject?.subject?.subject?.firstCA
-  //   );
-  //   const secondCA = useSelector(
-  //     (state) => state?.editScores?.subject?.subject?.subject?.secondCA
-  //   );
-  //   const exam = useSelector(
-  //     (state) => state?.editScores?.subject?.subject?.subject?.exam
-  //   );
-  //   const total = useSelector(
-  //     (state) => state?.editScores?.subject?.performance?.total
-  //   );
-  //   const average = useSelector(
-  //     (state) => state?.editScores?.subject?.performance?.average
-  //   );
-  //   const grade = useSelector(
-  //     (state) => state?.editScores?.subject?.performance?.grade
-  //   );
-
-  // I fetch the current student here to get his name on the edit form
-  // const currentStd = useSelector((state) => state.studentDetail.stdData);
-
+  // I fetch the student data from the service file
   const studentData = getStduent();
   const { name } = studentData.attributes;
 
-  // const currentStd = studentData.attributes;
-  // let name = currentStudent.name;
-  //initialling the formData with empty objects
+  // I fetch the student Affective skills from the service file
+  const rawAffectiveSkills = getAffectiveSkills();
+  const affectiveSkills = rawAffectiveSkills?.data?.data;
+
+  // I fetch the student Psychomotor skills from the service file
+  const rawPsy = getPsychomotor();
+  const psychomotor = rawPsy?.data?.data;
+
   const [affectiveFormData, setAffectiveFormData] = useState({
     stdID: studentData.id,
     puntuality: "",
@@ -177,106 +158,113 @@ function PsyAffective() {
             {`${name ? name : null}'s: Affective Skills`}
           </h2>
         </div>
-        <form onSubmit={handleAffectiveSubmit}>
-          <input
-            type="number"
-            name="id"
-            placeholder="id"
-            required
-            className="input"
-            value={Number(affectiveFormData.stdID)}
-            onChange={handleAffectiveChange}
-            disabled
-          />
+        {affectiveSkills.map((skill) => {
+          console.log(skill);
+          return (
+            <>
+              <form onSubmit={handleAffectiveSubmit}>
+                <input
+                  type="number"
+                  name="id"
+                  placeholder="id"
+                  required
+                  className="input"
+                  value={Number(affectiveFormData.stdID)}
+                  onChange={handleAffectiveChange}
+                  disabled
+                />
 
-          {/* mathematics */}
-          <div className="mb-2">
-            <input
-              type="number"
-              name="puntuality"
-              placeholder="puntuality"
-              required
-              className="input"
-              value={affectiveFormData.puntuality}
-              onChange={handleAffectiveChange}
-            />
-            <input
-              type="number"
-              name="politeness"
-              value={affectiveFormData.politeness}
-              placeholder="politeness"
-              required
-              className="input"
-              onChange={handleAffectiveChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="neatness"
-              placeholder="neatness"
-              value={affectiveFormData.neatness}
-              required
-              onChange={handleAffectiveChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="honesty"
-              placeholder="honesty"
-              value={affectiveFormData.honesty}
-              required
-              onChange={handleAffectiveChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="leadership"
-              placeholder="leadership"
-              value={affectiveFormData.leadership}
-              required
-              onChange={handleAffectiveChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="cooperation"
-              placeholder="cooperation"
-              value={affectiveFormData.cooperation}
-              required
-              onChange={handleAffectiveChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="attentiveness"
-              placeholder="attentiveness"
-              value={affectiveFormData.attentiveness}
-              required
-              onChange={handleAffectiveChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="perserverance"
-              placeholder="perserverance"
-              value={affectiveFormData.perserverance}
-              required
-              onChange={handleAffectiveChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="attitude"
-              placeholder="attitude"
-              value={affectiveFormData.attitude}
-              required
-              onChange={handleAffectiveChange}
-            />
-          </div>
-          <button className="bg-forecolor cursor-pointer text-2xl, p-2 rounded-full w-full mt-2 text-gray-200">
-            Submit
-          </button>
-        </form>
+                {/* mathematics */}
+                <div className="mb-2">
+                  <input
+                    type="number"
+                    name="puntuality"
+                    placeholder="puntuality"
+                    required
+                    className="input"
+                    value={affectiveFormData.puntuality}
+                    onChange={handleAffectiveChange}
+                  />
+                  <input
+                    type="number"
+                    name="politeness"
+                    value={affectiveFormData.politeness}
+                    placeholder="politeness"
+                    required
+                    className="input"
+                    onChange={handleAffectiveChange}
+                  />
+                  <input
+                    className="input"
+                    type="number"
+                    name="neatness"
+                    placeholder="neatness"
+                    value={affectiveFormData.neatness}
+                    required
+                    onChange={handleAffectiveChange}
+                  />
+                  <input
+                    className="input"
+                    type="number"
+                    name="honesty"
+                    placeholder="honesty"
+                    value={affectiveFormData.honesty}
+                    required
+                    onChange={handleAffectiveChange}
+                  />
+                  <input
+                    className="input"
+                    type="number"
+                    name="leadership"
+                    placeholder="leadership"
+                    value={affectiveFormData.leadership}
+                    required
+                    onChange={handleAffectiveChange}
+                  />
+                  <input
+                    className="input"
+                    type="number"
+                    name="cooperation"
+                    placeholder="cooperation"
+                    value={affectiveFormData.cooperation}
+                    required
+                    onChange={handleAffectiveChange}
+                  />
+                  <input
+                    className="input"
+                    type="number"
+                    name="attentiveness"
+                    placeholder="attentiveness"
+                    value={affectiveFormData.attentiveness}
+                    required
+                    onChange={handleAffectiveChange}
+                  />
+                  <input
+                    className="input"
+                    type="number"
+                    name="perserverance"
+                    placeholder="perserverance"
+                    value={affectiveFormData.perserverance}
+                    required
+                    onChange={handleAffectiveChange}
+                  />
+                  <input
+                    className="input"
+                    type="number"
+                    name="attitude"
+                    placeholder="attitude"
+                    value={affectiveFormData.attitude}
+                    required
+                    onChange={handleAffectiveChange}
+                  />
+                </div>
+                <button className="bg-forecolor cursor-pointer text-2xl, p-2 rounded-full w-full mt-2 text-gray-200">
+                  Submit
+                </button>
+              </form>
+            </>
+          );
+        })}
       </div>
 
       {/* pyschomotor inputation  */}
@@ -354,4 +342,4 @@ function PsyAffective() {
   );
 }
 
-export default PsyAffective;
+export default EditPsyAffective;

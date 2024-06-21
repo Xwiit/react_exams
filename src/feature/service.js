@@ -57,6 +57,23 @@ export function getSession() {
     return null;
   }
 }
+export function getAffectiveSkills() {
+  let affectiveSkills = localStorage.getItem("affectiveSkills");
+  if (affectiveSkills) {
+    return JSON.parse(affectiveSkills);
+  } else {
+    return null;
+  }
+}
+export function getPsychomotor() {
+  let psychomotor = localStorage.getItem("psychomotor");
+  if (psychomotor) {
+    return JSON.parse(psychomotor);
+  } else {
+    return null;
+  }
+}
+
 export function getRemark() {
   let remark = localStorage.getItem("remarks");
   if (remark) {

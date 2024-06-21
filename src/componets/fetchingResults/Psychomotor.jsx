@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
+import { getPsychomotor } from "../../feature/service";
 // import { fetchResult } from "../../feature/fetchResultSlices/firstTerm/fetchFirstTerm";
 
 function FetchPsychomotor() {
-  const rawPsychomotor = localStorage.getItem("psychomotor");
-  const psychomotor = JSON.parse(rawPsychomotor);
+  const psychomotor = getPsychomotor();
+  // const rawPsychomotor = localStorage.getItem("psychomotor");
+  // const psychomotor = JSON.parse(rawPsychomotor);
   // console.log(psychomotor);
   const stdPsychomotor = psychomotor?.data?.data;
 

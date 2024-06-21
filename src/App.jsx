@@ -18,6 +18,8 @@ import DeleteFirstTermResult from "./componets/delete/DeleteFirstTermResult";
 import PsyAffective from "./componets/psyAffective/firstTermPsyAffective";
 import TermSession from "./componets/Session";
 import Remarks from "./componets/remark/Remarks";
+import EditPsyAffective from "./componets/editScores/EditPsyAffective";
+import EditRemark from "./componets/editScores/EditRemark";
 
 function App() {
   const router = Router([
@@ -55,6 +57,14 @@ function App() {
         {
           path: "/remarks",
           element: <Protector Component={<Remarks />} />,
+        },
+        {
+          path: "/edit-psycomotor-affective-skills",
+          element: <Protector Component={<EditPsyAffective />} />,
+        },
+        {
+          path: "/edit-remark",
+          element: <Protector Component={<EditRemark />} />,
         },
       ],
     },

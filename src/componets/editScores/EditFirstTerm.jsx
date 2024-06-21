@@ -17,7 +17,7 @@ function EditFirstTerm() {
   const stdResult = result.data.data;
 
   //fecting the current editted scores from the editScoreSlice
-  const stdID = useSelector((state) => state.editScores.subject.id);
+  // const stdID = useSelector((state) => state.editScores.subject.id);
   const subject = useSelector(
     (state) => state?.editScores?.subject?.subject?.subject?.subject
   );

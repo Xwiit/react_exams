@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
+import { getAffectiveSkills } from "../../feature/service";
 // import { fetchResult } from "../../feature/fetchResultSlices/firstTerm/fetchFirstTerm";
 
 function AffectiveSkills() {
-  const rawAffectiveSkills = localStorage.getItem("affectiveSkills");
-  const affectiveSkills = JSON.parse(rawAffectiveSkills);
+  const affectiveSkills = getAffectiveSkills();
+  // const rawAffectiveSkills = localStorage.getItem("affectiveSkills");
+  // const affectiveSkills = JSON.parse(rawAffectiveSkills);
   // console.log(psychomotor);
   const stdAffectiveSkills = affectiveSkills?.data?.data;
 
