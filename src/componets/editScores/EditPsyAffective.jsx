@@ -154,8 +154,8 @@ function EditPsyAffective() {
     >
       <div className="w-[90%] sm:w-[45%] h-auto p-4  bg-gray-500 rounded-md my-[1rem]">
         <div>
-          <h2 className="uppercase text-xl mb-2 text-center  text-gray-200">
-            {`${name ? name : null}'s: Affective Skills`}
+          <h2 className="uppercase text-xl mb-2 text-center  text-gray-800">
+            {`Edit ${name ? name : null}'s: Affective Skills`}
           </h2>
         </div>
         {affectiveSkills.map((skill) => {
@@ -270,72 +270,74 @@ function EditPsyAffective() {
       {/* pyschomotor inputation  */}
       <div className="w-[90%] sm:w-[45%] h-auto p-4  bg-gray-500 rounded-md">
         <div>
-          <h2 className="uppercase text-xl mb-2 text-center  text-gray-200">
+          <h2 className="uppercase text-xl mb-2 text-center  text-gray-800">
             {`${name}'s: Psychomotor`}
           </h2>
         </div>
-        <form onSubmit={handlePsychomotorSubmit}>
-          <input
-            type="number"
-            name="id"
-            placeholder="id"
-            required
-            className="input"
-            value={Number(psyFormData.stdID)}
-            onChange={handlePsycomotorChange}
-            disabled
-          />
-          <div className="mb-2">
+        {psychomotor.map((psy) => {
+          <form onSubmit={handlePsychomotorSubmit}>
             <input
               type="number"
-              name="handwriting"
-              placeholder="handwriting"
+              name="id"
+              placeholder="id"
               required
               className="input"
-              value={psyFormData.handwriting}
+              value={Number(psy.attributes.stdID)}
               onChange={handlePsycomotorChange}
+              disabled
             />
-            <input
-              type="number"
-              name="verbalFluency"
-              value={psyFormData.verbalFluency}
-              placeholder="verbal fluency"
-              required
-              className="input"
-              onChange={handlePsycomotorChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="sport"
-              placeholder="sport"
-              value={psyFormData.sport}
-              required
-              onChange={handlePsycomotorChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="handlingTools"
-              placeholder="handling tools"
-              value={psyFormData.handlingTools}
-              required
-              onChange={handlePsycomotorChange}
-            />
-            <input
-              className="input"
-              type="number"
-              name="drawing"
-              placeholder="drawing"
-              value={psyFormData.drawing}
-              required
-              onChange={handlePsycomotorChange}
-            />
-          </div>
-          <button className="bg-forecolor cursor-pointer text-2xl, p-2 rounded-full w-full mt-2 text-gray-200">
-            Submit
-          </button>
-        </form>
+            <div className="mb-2">
+              <input
+                type="number"
+                name="handwriting"
+                placeholder="handwriting"
+                required
+                className="input"
+                value={psy.attributes.handwriting}
+                onChange={handlePsycomotorChange}
+              />
+              <input
+                type="number"
+                name="verbalFluency"
+                value={psy.attributes.verbalFluency}
+                placeholder="verbal fluency"
+                required
+                className="input"
+                onChange={handlePsycomotorChange}
+              />
+              <input
+                className="input"
+                type="number"
+                name="sport"
+                placeholder="sport"
+                value={psy.attributes.sport}
+                required
+                onChange={handlePsycomotorChange}
+              />
+              <input
+                className="input"
+                type="number"
+                name="handlingTools"
+                placeholder="handling tools"
+                value={psy.attributes.handlingTools}
+                required
+                onChange={handlePsycomotorChange}
+              />
+              <input
+                className="input"
+                type="number"
+                name="drawing"
+                placeholder="drawing"
+                value={psy.attributes.drawing}
+                required
+                onChange={handlePsycomotorChange}
+              />
+            </div>
+            <button className="bg-forecolor cursor-pointer text-2xl, p-2 rounded-full w-full mt-2 text-gray-200">
+              Submit
+            </button>
+          </form>;
+        })}
         <div className="w-full sm:hidden p-2 h-2">{/* <Footer /> */}</div>
       </div>
     </div>

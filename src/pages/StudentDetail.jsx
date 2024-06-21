@@ -108,7 +108,7 @@ function StudentDetail() {
             <Link
               to="/edit-first-term-result"
               onClick={handleEditExamScores}
-              className="desicionBtn  bg-lightColor"
+              className="desicionBtn text-background  bg-lightColor"
             >
               Edit Result
             </Link>
@@ -126,14 +126,17 @@ function StudentDetail() {
             </Link>
             <Link
               to="/edit-psycomotor-affective-skills"
-              className="desicionBtn bg-lightColor"
+              className="desicionBtn text-background bg-lightColor"
             >
               Edit Psy. & Aff.
             </Link>
             <Link to="/remarks" className="desicionBtn bg-background">
               Remarks
             </Link>
-            <Link to="/edit-remark" className="desicionBtn bg-lightColor">
+            <Link
+              to="/edit-remark"
+              className="desicionBtn text-background bg-lightColor"
+            >
               Edit Remarks
             </Link>
             <small className="desicionBtn  bg-background">Share</small>
