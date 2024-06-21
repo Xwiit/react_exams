@@ -91,9 +91,9 @@ function PsyAffective() {
     console.log("Afective skills", data);
 
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/affective-skills`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/affective-skills/${studentData.id}`;
       await axios
-        .post(
+        .put(
           url,
           { data },
           {
@@ -129,9 +129,9 @@ function PsyAffective() {
     const data = psyFormData;
     console.log("pyschomotor", data);
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/psychomotors`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/psychomotors/${studentData.id}`;
       await axios
-        .post(
+        .put(
           url,
           { data },
           {
