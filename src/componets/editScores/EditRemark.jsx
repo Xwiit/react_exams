@@ -4,11 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 import axios from "axios";
-import { getStduent } from "../../feature/service";
+import { getRemark, getStduent } from "../../feature/service";
 
 function EditRemark() {
   const studentData = getStduent();
   const { name } = studentData.attributes;
+
+  const remarks = getRemark();
+  const remarkID = remarks?.data?.data;
 
   const [remark, setRemark] = useState({
     stdID: studentData.id,
@@ -30,10 +33,11 @@ function EditRemark() {
     const data = remark;
     // console.log(data);
     const authToken = import.meta.env.VITE_ACCESS_TOKEN;
+    const id = remarkID[0].id;
     try {
-      const url = `https://strapi-176070-0.cloudclusters.net/api/remarks`;
+      const url = `https://strapi-176070-0.cloudclusters.net/api/remarks/${id}`;
       await axios
-        .post(
+        .put(
           url,
           { data },
           {
