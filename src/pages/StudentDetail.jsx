@@ -100,7 +100,7 @@ function StudentDetail() {
               className="desicionBtn  bg-background"
               onClick={handleShowExamForm}
             >
-              Compute 1st Term
+              Compute Result
             </Link>
             <Link
               to="/first-term-result"
