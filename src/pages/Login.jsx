@@ -53,72 +53,66 @@ function Login() {
   function handleTeacherLoggedIn() {
     dispatch(setTeacherLoggedIn(true));
   }
-  function handleStudentLoggedIn() {
-    dispatch(setStudentLoggedIn(true));
-  }
+  // function handleStudentLoggedIn() {
+  //   dispatch(setStudentLoggedIn(true));
+  // }
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-background">
-      {teacherLoggedIn && (
-        <div className="w-[20rem] h-[18rem] bg-forecolor rounded-md p-4">
-          <h2 className="text-xl p-2 text-gray-300">Teacher Login</h2>
-          <form>
-            <input
-              name="identifier"
-              value={teacherLoginData.identifier}
-              className="input"
-              type="email"
-              placeholder="Email"
-              onChange={handleLogin}
-            />
-            <input
-              name="password"
-              value={teacherLoginData.password}
-              className="input"
-              type="password"
-              placeholder="Password"
-              onChange={handleLogin}
-            />
-            <button onClick={handleSubmitLogin} className="btn">
-              {message === "Loading" ? "Loading..." : "Login"}
-            </button>
-          </form>
-        </div>
-      )}
-      {/* Student login form below */}
-      {studentLoggedIn && (
-        <div className="w-[20rem] h-[18rem] bg-forecolor rounded-md p-4">
-          <h2 className="text-xl p-2 text-gray-300">Check Student Result</h2>
-          <form>
-            <input
-              name="examPin"
-              value={teacherLoginData.password}
-              className="input"
-              type="text"
-              placeholder="Enter your examination pin"
-              onChange={handleLogin}
-            />
-            <button onClick={handleSubmitLogin} className="btn">
-              Check Result
-            </button>
-          </form>
-        </div>
-      )}
-      {teacherLoggedIn && (
-        <h3
-          className="text-gray-200 mt-2 cursor-pointer"
-          onClick={handleTeacherLoggedIn}
-        >
-          Teacher Login
-        </h3>
-      )}
-      {studentLoggedIn && (
-        <h3
-          className="text-gray-200 mt-2 cursor-pointer"
-          onClick={handleStudentLoggedIn}
-        >
-          Check Result
-        </h3>
-      )}
+      <div className="w-[20rem] h-auto bg-forecolor rounded-md p-4">
+        {teacherLoggedIn && (
+          <div>
+            <h2 className="text-xl p-2 text-gray-300">Teacher Login</h2>
+            <form>
+              <input
+                name="identifier"
+                value={teacherLoginData.identifier}
+                className="input"
+                type="email"
+                placeholder="Email"
+                onChange={handleLogin}
+              />
+              <input
+                name="password"
+                value={teacherLoginData.password}
+                className="input"
+                type="password"
+                placeholder="Password"
+                onChange={handleLogin}
+              />
+              <button onClick={handleSubmitLogin} className="btn">
+                {message === "Loading" ? "Loading..." : "Login"}
+              </button>
+            </form>
+          </div>
+        )}
+        {/* Student login form below */}
+        {studentLoggedIn && (
+          <div>
+            <h2 className="text-xl p-2 text-gray-300">Check Student Result</h2>
+            <form>
+              <input
+                name="examPin"
+                value={teacherLoginData.password}
+                className="input"
+                type="text"
+                placeholder="Enter your examination pin"
+                onChange={handleLogin}
+              />
+              <button onClick={handleSubmitLogin} className="btn">
+                Check Result
+              </button>
+            </form>
+          </div>
+        )}
+        {teacherLoggedIn && (
+          <h3
+            className="text-gray-200 mt-2 cursor-pointer"
+            onClick={handleTeacherLoggedIn}
+          >
+            Teacher Login
+          </h3>
+        )}
+      </div>
     </div>
   );
 }
