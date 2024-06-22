@@ -53,9 +53,9 @@ function Login() {
   function handleTeacherLoggedIn() {
     dispatch(setTeacherLoggedIn(true));
   }
-  // function handleStudentLoggedIn() {
-  //   dispatch(setStudentLoggedIn(true));
-  // }
+  function handleStudentLoggedIn() {
+    dispatch(setStudentLoggedIn(true));
+  }
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-background">
       <div className="w-[20rem] h-auto bg-forecolor rounded-md p-4">
@@ -110,6 +110,14 @@ function Login() {
             onClick={handleTeacherLoggedIn}
           >
             Teacher Login
+          </h3>
+        )}
+        {teacherLoggedIn && (
+          <h3
+            className="text-gray-200 mt-2 cursor-pointer"
+            onClick={handleStudentLoggedIn}
+          >
+            Check Results
           </h3>
         )}
       </div>
