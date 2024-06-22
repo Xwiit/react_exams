@@ -51,7 +51,7 @@ function Login() {
     dispatch(setTeacherLoggedIn(true));
   }
   return (
-    <div className="flex justify-center items-center h-screen bg-background">
+    <div className="flex flex-col justify-center items-center h-screen bg-background">
       {teacherLoggedIn && (
         <div className="w-[20rem] h-[18rem] bg-forecolor rounded-md p-4">
           <h2 className="text-xl p-2 text-gray-300">Login</h2>
@@ -96,7 +96,10 @@ function Login() {
           </form>
         </div>
       )}
-      <h3 className="text-gray-200 mt-2" onClick={handleTeacherLoggedIn}>
+      <h3
+        className="text-gray-200 mt-2 cursor-pointer"
+        onClick={handleTeacherLoggedIn}
+      >
         Teacher Login
       </h3>
     </div>
