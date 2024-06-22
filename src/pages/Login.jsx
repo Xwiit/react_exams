@@ -35,7 +35,11 @@ function Login() {
 
   function handleStudentSubmit(e) {
     e.preventDefault();
-    navigate("/student-dashboard");
+    localStorage.setItem(
+      "examinationNo",
+      JSON.stringify(studentLoginData.examPin)
+    );
+    navigate("/validate-student-pin");
     // // dispatch(teacherLogin(teacherLoginData)).then((result) => {
     // //   if (result.payload) {
     // //     toast.success("Login Successful");
@@ -132,7 +136,7 @@ function Login() {
         <div className="text-center w-full">
           {studentLoggedIn && (
             <small
-              className="text-gray-200 mt-2 cursor-pointer"
+              className="text-gray-200 mt-6 cursor-pointer"
               onClick={handleTeacherLoggedIn}
             >
               Teacher Login
@@ -140,7 +144,7 @@ function Login() {
           )}
           {teacherLoggedIn && (
             <small
-              className="text-gray-200 mt-2 cursor-pointer"
+              className="text-gray-200 mt-6 cursor-pointer"
               onClick={handleStudentLoggedIn}
             >
               Check Results

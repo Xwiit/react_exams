@@ -90,3 +90,11 @@ export function getAllStudents() {
     return null;
   }
 }
+export function getExamination() {
+  let examNo = localStorage.getItem("examinationNo");
+  if (examNo) {
+    return JSON.parse(examNo);
+  } else {
+    return null;
+  }
+}

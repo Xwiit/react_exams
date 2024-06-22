@@ -9,6 +9,8 @@ import editSubjectSlice from "./editSubjectSlice";
 // import fetchPsychomotorSlice from "./fetchResultSlices/firstTerm/fetchPsychomotor";
 import fetchResultSlice from "./fetchResultSlices/firstTerm/fetchFirstTerm";
 
+import studentResultSlice from "./studentResultSlice";
+
 const store = configureStore({
   reducer: {
     teacherLoginDetails: teacherSlice,
@@ -19,6 +21,7 @@ const store = configureStore({
     editScores: editSubjectSlice,
     firstTermResult: fetchResultSlice,
     // psychomtor: fetchPsychomotorSlice,
+    studentResult: studentResultSlice,
   },
 });
 

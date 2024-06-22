@@ -20,7 +20,8 @@ import TermSession from "./componets/Session";
 import Remarks from "./componets/remark/Remarks";
 import EditPsyAffective from "./componets/editScores/EditPsyAffective";
 import EditRemark from "./componets/editScores/EditRemark";
-import StudentLogin from "./pages/StudentLogin";
+import StudentDashboard from "./pages/StudentDashboard";
+import CheckStudentPin from "./pages/CheckStudentPin";
 
 function App() {
   const router = Router([
@@ -75,7 +76,11 @@ function App() {
     },
     {
       path: "/student-dashboard",
-      element: <StudentLogin />,
+      element: <StudentDashboard />,
+    },
+    {
+      path: "/validate-student-pin",
+      element: <CheckStudentPin />,
     },
   ]);
   return <RouterProvider router={router} />;
