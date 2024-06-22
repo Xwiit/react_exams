@@ -10,6 +10,8 @@ const initialState = {
   deleteModal: false,
   examForm: false,
   leftSideDisplay: false,
+  teacherLogin: false,
+  studentLogin: true,
 };
 
 const uiOperationSlice = createSlice({
@@ -78,6 +80,14 @@ const uiOperationSlice = createSlice({
       // state.deleteModal = false;
       state.rightSideDisplay = false;
     },
+    setTeacherLoggedIn(state, action) {
+      state.teacherLogin = action.payload;
+      state.studentLogin = false;
+    },
+    setStudentLoggedIn(state, action) {
+      state.studentLogin = action.payload;
+      state.teacherLogin = false;
+    },
   },
 });
 
@@ -91,5 +101,7 @@ export const {
   setDeleteModal,
   setShowExamForm,
   setLeftSideDisplay,
+  setTeacherLoggedIn,
+  setStudentLoggedIn,
 } = uiOperationSlice.actions;
 export default uiOperationSlice.reducer;
