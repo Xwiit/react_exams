@@ -104,22 +104,24 @@ function Login() {
             </form>
           </div>
         )}
-        {studentLoggedIn && (
-          <h3
-            className="text-gray-200 mt-2 cursor-pointer"
-            onClick={handleTeacherLoggedIn}
-          >
-            Teacher Login
-          </h3>
-        )}
-        {teacherLoggedIn && (
-          <h3
-            className="text-gray-200 mt-2 cursor-pointer"
-            onClick={handleStudentLoggedIn}
-          >
-            Check Results
-          </h3>
-        )}
+        <div className="text-center w-full">
+          {studentLoggedIn && (
+            <small
+              className="text-gray-200 mt-2 cursor-pointer"
+              onClick={handleTeacherLoggedIn}
+            >
+              Teacher Login
+            </small>
+          )}
+          {teacherLoggedIn && (
+            <small
+              className="text-gray-200 mt-2 cursor-pointer"
+              onClick={handleStudentLoggedIn}
+            >
+              Check Results
+            </small>
+          )}
+        </div>
       </div>
     </div>
   );
