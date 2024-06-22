@@ -104,7 +104,7 @@ function Login() {
             </form>
           </div>
         )}
-        {teacherLoggedIn && (
+        {studentLoggedIn && (
           <h3
             className="text-gray-200 mt-2 cursor-pointer"
             onClick={handleTeacherLoggedIn}
