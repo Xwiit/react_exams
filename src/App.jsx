@@ -20,6 +20,7 @@ import TermSession from "./componets/Session";
 import Remarks from "./componets/remark/Remarks";
 import EditPsyAffective from "./componets/editScores/EditPsyAffective";
 import EditRemark from "./componets/editScores/EditRemark";
+import StudentLogin from "./pages/StudentLogin";
 
 function App() {
   const router = Router([
@@ -71,6 +72,10 @@ function App() {
     {
       path: "/",
       element: <Login />,
+    },
+    {
+      path: "/student-dashboard",
+      element: <StudentLogin />,
     },
   ]);
   return <RouterProvider router={router} />;

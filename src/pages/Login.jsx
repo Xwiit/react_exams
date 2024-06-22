@@ -27,8 +27,27 @@ function Login() {
     password: "",
   });
 
+  // ---------------------------student login ---------------------------
+  const [studentLoginData, setStudentLoginData] = useState({
+    examPin: "",
+  });
+  console.log("student exam Pin", studentLoginData);
+
+  function handleStudentSubmit(e) {
+    e.preventDefault();
+    navigate("/student-dashboard");
+    // // dispatch(teacherLogin(teacherLoginData)).then((result) => {
+    // //   if (result.payload) {
+    // //     toast.success("Login Successful");
+    // //     navigate("/dashboard");
+    // //   } else {
+    // //     toast.error("Login Failed");
+    // //   }
+    // });
+  }
+
   //with this dispatch the teacher data is been sent to the teacherLoginSlice
-  function handleSubmitLogin(e) {
+  function handleTeacherSubmit(e) {
     e.preventDefault();
     dispatch(teacherLogin(teacherLoginData)).then((result) => {
       if (result.payload) {
@@ -50,6 +69,14 @@ function Login() {
     }));
   }
 
+  //making the student login form controllable
+  function handleStudentChange(e) {
+    e.preventDefault();
+    setStudentLoginData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  }
   function handleTeacherLoggedIn() {
     dispatch(setTeacherLoggedIn(true));
   }
@@ -79,7 +106,7 @@ function Login() {
                 placeholder="Password"
                 onChange={handleLogin}
               />
-              <button onClick={handleSubmitLogin} className="btn">
+              <button onClick={handleTeacherSubmit} className="btn">
                 {message === "Loading" ? "Loading..." : "Login"}
               </button>
             </form>
@@ -89,18 +116,16 @@ function Login() {
         {studentLoggedIn && (
           <div>
             <h2 className="text-xl p-2 text-gray-300">Check Student Result</h2>
-            <form>
+            <form onSubmit={handleStudentSubmit}>
               <input
                 name="examPin"
-                value={teacherLoginData.password}
+                value={studentLoginData.examPin}
                 className="input"
                 type="text"
                 placeholder="Enter your examination pin"
-                onChange={handleLogin}
+                onChange={handleStudentChange}
               />
-              <button onClick={handleSubmitLogin} className="btn">
-                Check Result
-              </button>
+              <button className="btn">Check Result</button>
             </form>
           </div>
         )}
