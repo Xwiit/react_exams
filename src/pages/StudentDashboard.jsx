@@ -75,7 +75,7 @@ function StudentDashboard() {
       }
     }
     getStdResults();
-  }, [authToken, stdID, severUrl]);
+  }, [authToken, stdID, serverUrl]);
 
   function handleResultLogout() {
     localStorage.removeItem("examinationNo");
