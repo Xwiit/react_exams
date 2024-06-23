@@ -69,11 +69,11 @@ function ResultPreview() {
   return (
     <div
       className="w-full h-screen  flex justify-center scrollbar-thin
-    scrollbar-webkit overflow-scroll p-4 "
+    scrollbar-webkit overflow-scroll  p-4 "
     >
       <div
         ref={printRef}
-        className="bg-gray-100 border-2 border-gray-800 py-8 px-10 h-[70rem] ml-4 w-[50rem] rounded-lg"
+        className="bg-gray-100 border-2 border-gray-800 py-8 px-10 h-[55rem] ml-4 w-[50rem] rounded-lg"
       >
         {/* The result header */}
         <div>
@@ -95,6 +95,7 @@ function ResultPreview() {
               src={`https://strapi-176070-0.cloudclusters.net${stdData?.attributes?.passport?.data.map(
                 (passport) => passport?.attributes?.url
               )}`}
+              // src={`http://localhost:1337/${stdData?.attributes?.passport?.data?.attributes?.url}`}
               alt=""
               className="w-[15%] h-[15%] rounded-xl shadow-2xl"
             />

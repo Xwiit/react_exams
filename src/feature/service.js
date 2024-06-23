@@ -98,3 +98,11 @@ export function getExamination() {
     return null;
   }
 }
+export function resultCheckingStudent() {
+  let resultCheckStudent = localStorage.getItem("student");
+  if (resultCheckStudent) {
+    return JSON.parse(resultCheckStudent);
+  } else {
+    return null;
+  }
+}

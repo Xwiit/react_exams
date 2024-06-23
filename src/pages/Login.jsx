@@ -125,7 +125,7 @@ function Login() {
                 name="examPin"
                 value={studentLoginData.examPin}
                 className="input"
-                type="text"
+                type="password"
                 placeholder="Enter your examination pin"
                 onChange={handleStudentChange}
               />
