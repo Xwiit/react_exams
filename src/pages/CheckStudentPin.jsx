@@ -65,11 +65,11 @@ function CheckStudentPin() {
     } catch (error) {
       console.log(error);
     }
-    console.log(students);
+    // console.log(students);
   }
 
-  const process = setTimeout(handleGetAllStudent(), 3000);
-  console.log("time", process);
+  // const process = setTimeout(handleGetAllStudent(), 3000);
+  // console.log("time", process);
   return (
     <div className="bg-background flex flex-col w-full h-screen sm:flex-row justify-between">
       <div className="w-full sm:w-[30%] h-[30%] sm:h-screen flex flex-col justify-center items-center bg-background text-gray-200">
