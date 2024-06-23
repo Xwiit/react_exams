@@ -39,11 +39,11 @@ function CheckStudentPin() {
     getStudent();
   }, [examinationNo]);
   async function handleGetAllStudent() {
-    const url = `http://localhost:1337/api/students?populate=*`;
+    const url = `${serverUrl}/api/students?populate=*`;
     try {
       const students = await axios.get(url, {
         headers: {
-          Authorization: `Bearer ${LOCALHOST_TOKEN}`,
+          Authorization: `Bearer ${authToken}`,
         },
       });
       //   console.log(students.data.data);
