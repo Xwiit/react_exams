@@ -3,7 +3,7 @@
 function handleLogout() {
   localStorage.removeItem("teacher");
   localStorage.removeItem("session");
-  localStorage.removeItem("student");
+  // localStorage.removeItem("student");
   localStorage.removeItem("remarks");
   localStorage.removeItem("affectiveSkills");
   localStorage.removeItem("psychomotor");

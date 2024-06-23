@@ -80,6 +80,14 @@ function StudentDashboard() {
   function handleResultLogout() {
     localStorage.removeItem("examinationNo");
     localStorage.removeItem("resultCheckStudent");
+    // localStorage.removeItem("teacher");
+    localStorage.removeItem("session");
+    // localStorage.removeItem("student");
+    localStorage.removeItem("remarks");
+    localStorage.removeItem("affectiveSkills");
+    localStorage.removeItem("psychomotor");
+    localStorage.removeItem("result");
+    // localStorage.removeItem("allStudents");
     navigate("/");
   }
   return (
@@ -103,8 +111,10 @@ scrollbar-webkit overflow-y-scroll
           </div>
 
           <div className="w-full sm:w-[60%] p-2  flex flex-col ">
-            <h1 className="text-xl sm:text-2xl">{student?.attributes?.name}</h1>
-            <div className="flex flex-col text-xl justify-between">
+            <h1 className="text-xl uppercase sm:text-2xl">
+              {student?.attributes?.name}
+            </h1>
+            <div className="flex uppercase flex-col text-xl justify-between">
               <small>Examniation No: {student?.attributes?.admissionNo}</small>
             </div>
           </div>
