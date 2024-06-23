@@ -17,7 +17,7 @@ function StudentDashboard() {
   // const student = useSelector((state) => state.studentResult.studentDetails);
   const stdID = student.id;
   console.log("id", stdID);
-  const serverUrl = `https://strapi-176070-0.cloudclusters.net`;
+  const serverUrl = "https://strapi-176070-0.cloudclusters.net";
 
   const authToken = import.meta.env.VITE_ACCESS_TOKEN;
   useEffect(() => {

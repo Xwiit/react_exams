@@ -15,7 +15,7 @@ function CheckStudentPin() {
   const [students, setStudents] = useState({});
   const dispatch = useDispatch();
   const examinationNo = getExamination();
-  const serverUrl = `https://strapi-176070-0.cloudclusters.net`;
+  const serverUrl = "https://strapi-176070-0.cloudclusters.net";
   useEffect(() => {
     async function getStudent() {
       const url = `${serverUrl}/api/students?populate=*`;
