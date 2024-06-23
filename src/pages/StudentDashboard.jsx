@@ -17,16 +17,16 @@ function StudentDashboard() {
   // const student = useSelector((state) => state.studentResult.studentDetails);
   const stdID = student.id;
   console.log("id", stdID);
-  const severUrl = `https://strapi-176070-0.cloudclusters.net`;
+  const serverUrl = `https://strapi-176070-0.cloudclusters.net`;
 
   const authToken = import.meta.env.VITE_ACCESS_TOKEN;
   useEffect(() => {
     async function getStdResults() {
-      const url1 = `${severUrl}/api/first-term-exams?filters[stdID][$eq]=${stdID}`;
-      const url2 = `${severUrl}/api/psychomotors?filters[stdID][$eq]=${stdID}`;
-      const url3 = `${severUrl}/api/affective-skills?filters[stdID][$eq]=${stdID}`;
-      const url4 = `${severUrl}/api/sessions`;
-      const url5 = `${severUrl}/api/remarks?filters[stdID][$eq]=${stdID}`;
+      const url1 = `${serverUrl}/api/first-term-exams?filters[stdID][$eq]=${stdID}`;
+      const url2 = `${serverUrl}/api/psychomotors?filters[stdID][$eq]=${stdID}`;
+      const url3 = `${serverUrl}/api/affective-skills?filters[stdID][$eq]=${stdID}`;
+      const url4 = `${serverUrl}/api/sessions`;
+      const url5 = `${serverUrl}/api/remarks?filters[stdID][$eq]=${stdID}`;
 
       try {
         const [result, psychomotor, affective, session, remarks] =

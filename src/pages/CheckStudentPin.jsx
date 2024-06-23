@@ -15,10 +15,10 @@ function CheckStudentPin() {
   const [students, setStudents] = useState({});
   const dispatch = useDispatch();
   const examinationNo = getExamination();
-
+  const serverUrl = `https://strapi-176070-0.cloudclusters.net`;
   useEffect(() => {
     async function getStudent() {
-      const url = `http://localhost:1337/api/students?populate=*`;
+      const url = `${serverUrl}/api/students?populate=*`;
       try {
         const students = await axios.get(url, {
           headers: {
