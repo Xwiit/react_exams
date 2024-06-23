@@ -109,7 +109,7 @@ scrollbar-webkit overflow-y-scroll
     "
     >
       <div className="w-[90%] sm:w-[70%] h-[55rem] rounded-lg my-[2rem] sm:mb-0 sm:rounded-none bg-gray-200">
-        <div className="bg-forecolor sm:px-[2rem] text-gray-200 w-full items-center m-2rem h-[40%] sm:h-[30%] sm:flex sm:flex-row flex-col p-2 sm:justify-between">
+        <div className="bg-forecolor sm:px-[2rem] text-gray-200 w-full items-center m-2rem h-[45%] sm:h-[30%] sm:flex sm:flex-row flex-col p-2 sm:justify-between">
           <div className="w-full flex justify-center items-center  sm:w-[20%]">
             <img
               // src={`http://localhost:1337/${student?.attributes?.passport?.data?.attributes?.url}`}
@@ -128,6 +128,8 @@ scrollbar-webkit overflow-y-scroll
             </h1>
             <div className="flex uppercase flex-col text-xl justify-between">
               <small>Examniation No: {student?.attributes?.admissionNo}</small>
+              <small>Class: {student?.attributes?.stdClass}</small>
+              <small>Class Teacher: {student?.attributes?.classTeacher}</small>
             </div>
             {isResultReady === false ? (
               <div>
