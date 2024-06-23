@@ -73,7 +73,7 @@ function ResultPreview() {
     >
       <div
         ref={printRef}
-        className="bg-gray-100 border-2 border-gray-800 py-8 px-10 h-[55rem] ml-4 w-[50rem] rounded-lg"
+        className="bg-gray-100 border-2 border-gray-800 py-8 px-10 h-[60rem] ml-4 w-[50rem] rounded-lg"
       >
         {/* The result header */}
         <div>

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import logo from "../images/logo.jpg";
-import { getStduent } from "../feature/service";
+import { getStduent, getResult } from "../feature/service";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
@@ -9,6 +9,7 @@ import ResultPreview from "../componets/ResultPreview";
 function StudentDashboard() {
   const student = getStduent();
   const navigate = useNavigate();
+  const result = getResult();
 
   // const authToken =
   //   "d3727bee94080f3fc878c1047247791e86df67c49c932d7d4b1851d07e22c4f4fd9690804377fe96663d22f59986599466950bd2739c3115e96bdd9cb801fcde070371b5dcbed867b6fb576d5bf7a9997756b60699e206ae25972ff933f17057fa8df5c0ec0676bc9722516bf0f2ef5e0ad12e72bbbecdf3cc93d799bd1ed0ad";
@@ -90,6 +91,10 @@ function StudentDashboard() {
     // localStorage.removeItem("allStudents");
     navigate("/");
   }
+
+  function handleLoadResult() {
+    location.reload(); // Reloads the current page
+  }
   return (
     <div
       className="bg-background w-full h-screen flex justify-center  scrollbar-thin 
@@ -128,7 +133,17 @@ scrollbar-webkit overflow-y-scroll
             </small>
           </div>
         </div>
-        <div>{<ResultPreview />}</div>
+        {
+          <div>
+            {result.length === 0 ? (
+              <button className="btn" onClick={handleLoadResult}>
+                Load Result
+              </button>
+            ) : (
+              <ResultPreview />
+            )}
+          </div>
+        }
       </div>
     </div>
   );
