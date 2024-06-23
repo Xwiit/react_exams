@@ -135,7 +135,7 @@ scrollbar-webkit overflow-y-scroll
         </div>
         {
           <div>
-            {result.length === 0 ? (
+            {result ? (
               <button className="btn" onClick={handleLoadResult}>
                 Load Result
               </button>
