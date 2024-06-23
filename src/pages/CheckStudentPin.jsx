@@ -36,6 +36,7 @@ function CheckStudentPin() {
       }
       // console.log(students);
     }
+
     getStudent();
   }, [examinationNo]);
   async function handleGetAllStudent() {
@@ -67,16 +68,31 @@ function CheckStudentPin() {
     console.log(students);
   }
 
+  function alertFunc() {
+    alert("Hello!");
+  }
+  const process = setTimeout(handleGetAllStudent(), 3000);
+  console.log("time", process);
   return (
     <div className="bg-background flex flex-col w-full h-screen sm:flex-row justify-between">
       <div className="w-full sm:w-[30%] h-[30%] sm:h-screen flex flex-col justify-center items-center bg-background text-gray-200">
         <h1>Processing...</h1>
-        <button
+
+        {setTimeout(
+          <button
+            className="w-[70%] rounded-xl p-4 uppercase bg-forecolor1"
+            onClick={handleGetAllStudent}
+          >
+            Proceed to Dashboard
+          </button>,
+          3000
+        )}
+        {/* <button
           className="w-[70%] rounded-xl p-4 uppercase bg-forecolor1"
           onClick={handleGetAllStudent}
         >
           Proceed to Dashboard
-        </button>
+        </button> */}
       </div>
       <div className="w-full sm:w-[70%] h-screen">
         <img className="w-full h-full" src={schoolLogo} alt="" />
