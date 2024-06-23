@@ -19,7 +19,7 @@ function Footer() {
       <button onClick={handleLogout} className="btn">
         Logout
       </button>
-      <h3 className="text-gray-200 mt-2 text-center">Powered by XwiitTech</h3>
+      <h3 className="text-gray-200 mt-2 text-center">Powered by XwiitTech <br /><small>08091505483</small></h3>
     </>
   );
 }

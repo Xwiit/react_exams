@@ -108,7 +108,7 @@ function StudentDashboard() {
 scrollbar-webkit overflow-y-scroll
     "
     >
-      <div className="w-[90%] sm:w-[70%] h-[55rem] rounded-lg my-[2rem] sm:mb-0 sm:rounded-none bg-gray-200">
+      <div className="w-[90%] sm:w-[70%] h-[60rem] flex flex-col justify-between rounded-lg my-[2rem] sm:mb-0 sm:rounded-none bg-gray-200">
         <div className="bg-forecolor sm:px-[2rem] text-gray-200 w-full items-center m-2rem h-[45%] sm:h-[30%] sm:flex sm:flex-row flex-col p-2 sm:justify-between">
           <div className="w-full flex justify-center items-center  sm:w-[20%]">
             <img
@@ -118,12 +118,12 @@ scrollbar-webkit overflow-y-scroll
               )}`}
               // src={logo}
               alt="student image"
-              className="w-full h-[12rem] sm:h-[8rem] rounded-xl"
+              className="w-full h-[12rem] sm:h-[10rem] rounded-xl"
             />
           </div>
 
           <div className="w-full sm:w-[60%] p-2  flex flex-col ">
-            <h1 className="text-xl uppercase sm:text-2xl">
+            <h1 className="text-xl uppercase sm:text-4xl">
               {student?.attributes?.name}
             </h1>
             <div className="flex uppercase flex-col text-xl justify-between">
@@ -157,6 +157,12 @@ scrollbar-webkit overflow-y-scroll
           </div>
         </div>
         {isResultReady && <div>{<ResultPreview />}</div>}
+        <div>
+          <h3 className="text-gray-200 mt-2 text-center w-full  bg-forecolor ">
+            Powered by XwiitTech <br />
+            <small>08091505483</small>
+          </h3>
+        </div>
       </div>
     </div>
   );

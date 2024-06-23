@@ -69,7 +69,7 @@ function ResultPreview() {
   return (
     <div
       className="w-full h-screen  flex justify-center scrollbar-thin
-    scrollbar-webkit overflow-scroll  p-4 "
+    scrollbar-webkit overflow-y-scroll  p-4 "
     >
       <div
         ref={printRef}
