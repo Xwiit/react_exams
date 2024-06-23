@@ -12,7 +12,7 @@ const authToken = import.meta.env.VITE_ACCESS_TOKEN;
 
 function CheckStudentPin() {
   const navigate = useNavigate();
-  const [students, setStudents] = useState({});
+  // const [students, setStudents] = useState({});
   const dispatch = useDispatch();
   const examinationNo = getExamination();
   const serverUrl = "https://strapi-176070-0.cloudclusters.net";
@@ -68,31 +68,19 @@ function CheckStudentPin() {
     console.log(students);
   }
 
-  function alertFunc() {
-    alert("Hello!");
-  }
   const process = setTimeout(handleGetAllStudent(), 3000);
   console.log("time", process);
   return (
     <div className="bg-background flex flex-col w-full h-screen sm:flex-row justify-between">
       <div className="w-full sm:w-[30%] h-[30%] sm:h-screen flex flex-col justify-center items-center bg-background text-gray-200">
-        <h1>Processing...</h1>
+        {/* <h1>Processing...</h1> */}
 
-        {setTimeout(
-          <button
-            className="w-[70%] rounded-xl p-4 uppercase bg-forecolor1"
-            onClick={handleGetAllStudent}
-          >
-            Proceed to Dashboard
-          </button>,
-          3000
-        )}
-        {/* <button
+        <button
           className="w-[70%] rounded-xl p-4 uppercase bg-forecolor1"
           onClick={handleGetAllStudent}
         >
           Proceed to Dashboard
-        </button> */}
+        </button>
       </div>
       <div className="w-full sm:w-[70%] h-screen">
         <img className="w-full h-full" src={schoolLogo} alt="" />
