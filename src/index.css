@@ -48,11 +48,12 @@ body {
 }
 
 .resultTable {
+  @apply font-semibold;
 }
 .resultTable > thead > tr > th {
-  @apply text-gray-500 border-2  text-sm font-semibold border-gray-600 py-1 uppercase;
+  @apply border-2  text-sm  border-gray-600 py-1 uppercase;
 }
 
 .resultTable > tbody > tr > td {
-  @apply text-gray-500 border-2 border-gray-600 p-1 text-sm uppercase;
+  @apply text-black border-2 border-gray-600 p-1 text-sm uppercase;
 }

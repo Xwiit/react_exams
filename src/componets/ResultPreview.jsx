@@ -56,44 +56,44 @@ function ResultPreview() {
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
       pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-      pdf.save("content.pdf");
+      pdf.save("result.pdf");
     });
   };
 
   // ----------------------------
 
-  const handleDownloadPdf = async () => {
-    const element = printRef.current;
+  // const handleDownloadPdf = async () => {
+  //   const element = printRef.current;
 
-    // A4 dimensions in points
-    const a4Width = 595.28;
-    const a4Height = 841.89;
+  //   // A4 dimensions in points
+  //   const a4Width = 595.28;
+  //   const a4Height = 841.89;
 
-    const canvas = await html2canvas(element, {
-      scale: 2, // Adjust scale if needed for better quality
-      width: element.scrollWidth,
-      height: element.scrollHeight,
-    });
+  //   const canvas = await html2canvas(element, {
+  //     scale: 2, // Adjust scale if needed for better quality
+  //     width: element.scrollWidth,
+  //     height: element.scrollHeight,
+  //   });
 
-    const imgData = canvas.toDataURL("image/png");
+  //   const imgData = canvas.toDataURL("image/png");
 
-    const pdf = new jsPDF("p", "pt", "a4");
-    const imgProperties = pdf.getImageProperties(imgData);
-    const pdfWidth = a4Width;
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+  //   const pdf = new jsPDF("p", "pt", "a4");
+  //   const imgProperties = pdf.getImageProperties(imgData);
+  //   const pdfWidth = a4Width;
+  //   const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
-    // If the content height is larger than A4, create multiple pages
-    let position = 0;
-    while (position < pdfHeight) {
-      pdf.addImage(imgData, "PNG", 0, position, pdfWidth, a4Height);
-      position += a4Height;
-      if (position < pdfHeight) {
-        pdf.addPage();
-      }
-    }
+  //   // If the content height is larger than A4, create multiple pages
+  //   let position = 0;
+  //   while (position < pdfHeight) {
+  //     pdf.addImage(imgData, "PNG", 0, position, pdfWidth, a4Height);
+  //     position += a4Height;
+  //     if (position < pdfHeight) {
+  //       pdf.addPage();
+  //     }
+  //   }
 
-    pdf.save("download.pdf");
-  };
+  //   pdf.save("download.pdf");
+  // };
 
   return (
     <div
@@ -102,7 +102,7 @@ function ResultPreview() {
     >
       <div
         ref={printRef}
-        className="bg-gray-100 border-2 border-gray-800 py-8 px-10 h-[60rem] ml-4 w-[50rem] rounded-lg"
+        className="bg-gray-100 border-2  py-8 px-10 h-[60rem] ml-4 w-[50rem] rounded-lg"
       >
         {/* The result header */}
         <div>
@@ -188,8 +188,13 @@ function ResultPreview() {
         <div>
           <TeachersRemark />
         </div>
-        <div className="flex flex-end justify-between">
-          <button onClick={handleGeneratePDF}>download</button>
+        <div className="flex  justify-end">
+          <button
+            className="text-black bg-gray-200 p-2 rounded-4"
+            onClick={handleGeneratePDF}
+          >
+            download
+          </button>
           {/* <button onClick={handlePrint}>Print</button> */}
         </div>
       </div>
