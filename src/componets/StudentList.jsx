@@ -26,7 +26,10 @@ function StudentList() {
     dispatch(fetchStudentDetials(id));
   }
   return (
-    <div className="flex flex-wrap">
+    <div
+      className="flex flex-wrap overflow-y-scroll scrollbar-thin
+    scrollbar-webkit"
+    >
       {allStudents &&
         allStudents.map((student) => {
           if (student?.attributes?.stdClass === teacher?.user?.classTaking) {
