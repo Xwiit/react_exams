@@ -26,7 +26,7 @@ function StudentList() {
     dispatch(fetchStudentDetials(id));
   }
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       {allStudents &&
         allStudents.map((student) => {
           if (student?.attributes?.stdClass === teacher?.user?.classTaking) {

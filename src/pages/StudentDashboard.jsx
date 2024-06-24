@@ -160,7 +160,7 @@ scrollbar-webkit overflow-y-scroll
         <div>
           <h3 className="text-gray-200 mt-2 text-center w-full  bg-forecolor ">
             Powered by XwiitTech <br />
-            <small>08091505483</small>
+            <small>☎️ 08091505483</small>
           </h3>
         </div>
       </div>
