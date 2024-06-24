@@ -8,8 +8,10 @@ import { getStduent } from "../feature/service";
 import ResultHeader from "./fetchingResults/ResultHeader";
 import TeachersRemark from "./fetchingResults/TeachersRemark";
 import Summary from "./fetchingResults/Summary";
+// import puppeteer from "puppeteer-core";
+// import fs from "fs-extra";
 
-import ReactToPrint from "react-to-print";
+// import ReactToPrint from "react-to-print";
 
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -19,19 +21,46 @@ function ResultPreview() {
 
   const printRef = useRef();
 
-  const handlePrint = () => {
-    const printContents = printRef.current.innerHTML;
-    const printWindow = window.open("", "", "height=500,width=800");
-    printWindow.document.write("<html><head><title>Print Div</title>");
-    printWindow.document.write(
-      "<style>body { font-family: Arial, sans-serif; }</style>"
-    );
-    printWindow.document.write("</head><body>");
-    printWindow.document.write(printContents);
-    printWindow.document.write("</body></html>");
-    printWindow.document.close();
-    printWindow.print();
+  // const puppeteePdf = async () => {
+  //   const element = printRef.current;
+  //   try {
+  //     const browser = await puppeteer.launch();
+  //     const page = await browser.newPage();
+  //     await page.setContent(element);
+  //     await page.emulateMedia("screen");
+  //     await page.pdf({
+  //       path: "resutl.pdf",
+  //       format: "A4",
+  //       printBackground: true,
+  //     });
+  //     await browser.close();
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
+
+  // ----------------------------
+  const handleGeneratePDF = () => {
+    // const input = document.getElementById('content');
+    const element = printRef.current;
+
+    html2canvas(element, { useCORS: true }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      });
+
+      const imgWidth = 210; // A4 width in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      pdf.save("content.pdf");
+    });
   };
+
+  // ----------------------------
 
   const handleDownloadPdf = async () => {
     const element = printRef.current;
@@ -159,8 +188,8 @@ function ResultPreview() {
         <div>
           <TeachersRemark />
         </div>
-        <div className="flex justify-between">
-          <button onClick={handleDownloadPdf}>download</button>
+        <div className="flex flex-end justify-between">
+          <button onClick={handleGeneratePDF}>download</button>
           {/* <button onClick={handlePrint}>Print</button> */}
         </div>
       </div>
