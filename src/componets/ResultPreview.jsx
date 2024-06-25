@@ -106,6 +106,13 @@ function ResultPreview() {
       >
         {/* The result header */}
         <div>
+          <div className="flex  justify-end">
+            <button className="text-black text-sm" onClick={handleGeneratePDF}>
+              download
+            </button>
+
+            {/* <button onClick={handlePrint}>Print</button> */}
+          </div>
           <div className="flex items-center justify-between">
             <img
               src={logo}
@@ -187,15 +194,6 @@ function ResultPreview() {
         {/* -----------------Remarks---------------- */}
         <div>
           <TeachersRemark />
-        </div>
-        <div className="flex  justify-end">
-          <button
-            className="text-black bg-gray-200 p-2 rounded-4"
-            onClick={handleGeneratePDF}
-          >
-            download
-          </button>
-          {/* <button onClick={handlePrint}>Print</button> */}
         </div>
       </div>
     </div>
