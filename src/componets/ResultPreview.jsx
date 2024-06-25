@@ -106,8 +106,11 @@ function ResultPreview() {
       >
         {/* The result header */}
         <div>
-          <div className="flex  justify-end">
-            <button className="text-black text-sm" onClick={handleGeneratePDF}>
+          <div className="">
+            <button
+              className="text-gray-300 text-sm"
+              onClick={handleGeneratePDF}
+            >
               download
             </button>
 
